@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dovybpy6nl3r4"]
 
+[ext_resource type="Script" uid="uid://dhdjbp8km7dxy" path="res://levels/level.gd" id="1_471vb"]
 [ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="1_gp3yc"]
+[ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="2_68uyt"]
 
 [node name="Level1" type="Node2D" unique_id=938879597]
+script = ExtResource("1_471vb")
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("1_gp3yc")]
 position = Vector2(3.8955536, 6.149603)
@@ -43,3 +46,5 @@ offset_top = 310.0
 offset_right = -494.0
 offset_bottom = 333.0
 text = "Reference point"
+
+[node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("2_68uyt")]
