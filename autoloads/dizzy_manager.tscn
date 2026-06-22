@@ -4,3 +4,7 @@
 
 [node name="DizzyManager" type="Node" unique_id=301440528]
 script = ExtResource("1_o3bkc")
+
+[node name="RotationChangeTimer" type="Timer" parent="." unique_id=625144693]
+
+[connection signal="timeout" from="RotationChangeTimer" to="." method="_on_rotation_change_timer_timeout"]

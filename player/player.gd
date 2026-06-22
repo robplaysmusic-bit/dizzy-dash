@@ -8,6 +8,8 @@ const WALK_DEACCEL : float = 1000.0
 const MAX_RUN_SPEED : float = 400.0
 const RUN_ACCEL : float = 500.0
 
+func _ready() -> void:
+	DizzyManager.set_dizziness(1000)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var velocity := state.get_linear_velocity()
@@ -17,7 +19,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var raw_input = Input.get_vector("left", "right", "up", "down")
 	var dizzy_input = DizzyManager.apply_dizziness(raw_input)
 
-	
 	# left / right movement
 	if dizzy_input.x < 0:
 		if velocity.x > -MAX_WALK_SPEED:

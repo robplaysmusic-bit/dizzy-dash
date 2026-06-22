@@ -10,8 +10,36 @@ position = Vector2(3.8955536, 6.149603)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
 
 [node name="Label" type="Label" parent="." unique_id=1238214731]
-offset_left = 44.0
-offset_top = -60.0
-offset_right = 167.0
-offset_bottom = -37.0
+offset_left = -39.0
+offset_top = -37.0
+offset_right = 84.0
+offset_bottom = -14.0
+text = "Reference point"
+
+[node name="Label2" type="Label" parent="." unique_id=1772476925]
+offset_left = -602.0
+offset_top = -326.0
+offset_right = -479.0
+offset_bottom = -303.0
+text = "Reference point"
+
+[node name="Label3" type="Label" parent="." unique_id=2079057675]
+offset_left = 496.0
+offset_top = -326.0
+offset_right = 619.0
+offset_bottom = -303.0
+text = "Reference point"
+
+[node name="Label5" type="Label" parent="." unique_id=204121901]
+offset_left = 503.0
+offset_top = 301.0
+offset_right = 626.0
+offset_bottom = 324.0
+text = "Reference point"
+
+[node name="Label4" type="Label" parent="." unique_id=1428127057]
+offset_left = -617.0
+offset_top = 310.0
+offset_right = -494.0
+offset_bottom = 333.0
 text = "Reference point"

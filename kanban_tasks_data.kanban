@@ -4,6 +4,11 @@
 			"uuid": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"title": "Task",
 			"color": "569eff"
+		},
+		{
+			"uuid": "22838bad-712d-4131-b57a-18ced9a6a508",
+			"title": "Bug",
+			"color": "c23f21"
 		}
 	],
 	"stages": [
@@ -11,23 +16,24 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
-				"58ef9e98-32a6-42de-b268-c3c36437922b",
 				"3e998141-4593-44f3-8d6b-1a511afa60eb",
 				"1b67d14a-4ebd-4e61-832f-aab137b16e14",
-				"215e60b5-3b95-4e76-9be9-c029de840502"
+				"215e60b5-3b95-4e76-9be9-c029de840502",
+				"2b1c2837-d394-46ac-9660-0f5ff83f640f"
 			]
 		},
 		{
 			"uuid": "daccdce7-7b64-4350-9d03-c951e7bbab2c",
 			"title": "Doing",
-			"tasks": [
-				"44aa7c26-27b9-4aca-8425-6ffe15ec858d"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "4b0366d0-12f4-4b8d-9f74-47efefb0db8f",
 			"title": "Done",
 			"tasks": [
+				"58ef9e98-32a6-42de-b268-c3c36437922b",
+				"44aa7c26-27b9-4aca-8425-6ffe15ec858d",
+				"4f431c29-11b6-4f07-8686-e9fc4d613ca6",
 				"915fd93f-16de-4473-8a88-8fb071cd646d",
 				"df5adb9f-a55d-46e0-9baa-7d00a5ea260d"
 			]
@@ -57,7 +63,7 @@
 		},
 		{
 			"uuid": "58ef9e98-32a6-42de-b268-c3c36437922b",
-			"title": "dizziness decays over time",
+			"title": "dizziness changes over time",
 			"description": "",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
@@ -81,6 +87,20 @@
 			"title": "handle friction with ground on z axis",
 			"description": "",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "4f431c29-11b6-4f07-8686-e9fc4d613ca6",
+			"title": "dizziness tiers",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "2b1c2837-d394-46ac-9660-0f5ff83f640f",
+			"title": "Sudden rotaiton changes for high dizziness",
+			"description": "This may actually be a feature... but\nFor high dizziness - rotation angle sometimes shifts suddenly instead of gradually (as we approach modulo boundaries)",
+			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
 			"steps": []
 		}
 	],
