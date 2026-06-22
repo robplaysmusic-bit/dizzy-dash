@@ -14,6 +14,10 @@ config/name="dizzy-dash"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalBus="*uid://co8l8twjyudc7"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -22,6 +26,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="dizzy-dash"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SignalBus/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
 
 [physics]
 
