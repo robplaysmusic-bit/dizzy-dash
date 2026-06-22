@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bqejy86jv4g1o"]
+
+[ext_resource type="Script" uid="uid://ppsrh1hxl6r4" path="res://levels/spin_minigame.gd" id="1_mcqe1"]
+
+[node name="SpinMinigame" type="Node2D" unique_id=1488981358]
+script = ExtResource("1_mcqe1")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1061008089]
+points = PackedVector2Array(0, 0, 200, 0)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://djohlgmjteldu"]
+
+[ext_resource type="PackedScene" uid="uid://bqejy86jv4g1o" path="res://levels/spin-minigame.tscn" id="1_bb3rd"]
+
+[node name="SpinTest" type="Node2D" unique_id=1637558949]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=768146652]
+
+[node name="SpinMinigame" parent="." unique_id=1488981358 instance=ExtResource("1_bb3rd")]
+pause_time_msec = 1000
