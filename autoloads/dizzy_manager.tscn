@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpyaw84lobups"]
+
+[ext_resource type="Script" uid="uid://c841mvqovo00" path="res://autoloads/dizzy_manager.gd" id="1_o3bkc"]
+
+[node name="DizzyManager" type="Node" unique_id=301440528]
+script = ExtResource("1_o3bkc")
