@@ -14,10 +14,6 @@ config/name="dizzy-dash"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-SignalBus="*uid://co8l8twjyudc7"
-
 [display]
 
 window/stretch/mode="canvas_items"
