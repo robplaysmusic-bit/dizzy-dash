@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dovybpy6nl3r4"]
+
+[ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="1_gp3yc"]
+
+[node name="Level1" type="Node2D" unique_id=938879597]
+
+[node name="Player" parent="." unique_id=715659999 instance=ExtResource("1_gp3yc")]
+position = Vector2(3.8955536, 6.149603)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
+
+[node name="Label" type="Label" parent="." unique_id=1238214731]
+offset_left = 44.0
+offset_top = -60.0
+offset_right = 167.0
+offset_bottom = -37.0
+text = "Reference point"
