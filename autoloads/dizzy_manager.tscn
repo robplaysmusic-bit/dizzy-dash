@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bpyaw84lobups"]
+
+[ext_resource type="Script" uid="uid://c841mvqovo00" path="res://autoloads/dizzy_manager.gd" id="1_o3bkc"]
+
+[node name="DizzyManager" type="Node" unique_id=301440528]
+script = ExtResource("1_o3bkc")
+
+[node name="RotationChangeTimer" type="Timer" parent="." unique_id=625144693]
+
+[connection signal="timeout" from="RotationChangeTimer" to="." method="_on_rotation_change_timer_timeout"]
