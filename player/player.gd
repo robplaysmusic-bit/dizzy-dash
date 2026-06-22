@@ -15,7 +15,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var velocity := state.get_linear_velocity()
 	var step := state.get_step()
 	
-	# read player inputs and apply diziness
+	# read player inputs and apply dizziness
 	var raw_input = Input.get_vector("left", "right", "up", "down")
 	var dizzy_input = DizzyManager.apply_dizziness(raw_input)
 
