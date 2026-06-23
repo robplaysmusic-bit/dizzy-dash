@@ -33,6 +33,7 @@ var last_progress_msec: int = 0
 var disabled : bool = false
 
 func _ready() -> void:
+	DizzyManager.set_dizziness(0)
 	_update_timer_label()
 	spin_time.start(mini_game_time)
 	warning_timer.start(warning_time)
@@ -63,7 +64,7 @@ func _process(_delta: float) -> void:
 		last_progress_msec = Time.get_ticks_msec()
 		if for_goal == 4:
 			spins += 1
-			push_warning("completed spin ", spins)
+			DizzyManager.set_dizziness(abs(spins))
 			for_goal = 0
 			rev_goal = 0
 	elif angle_in_range(direction, rev_goals[rev_goal], rev_goals[rev_goal + 1]):
@@ -71,7 +72,7 @@ func _process(_delta: float) -> void:
 		last_progress_msec = Time.get_ticks_msec()
 		if rev_goal == 4:
 			spins -= 1
-			push_warning("completed spin ", spins)
+			DizzyManager.set_dizziness(abs(spins))
 			rev_goal = 0
 			for_goal = 0
 

@@ -50,7 +50,7 @@ var rotation_increasing : bool = true
 @onready var rotation_change_timer: Timer = $RotationChangeTimer
 
 # Dizziness should be set before loading the next level
-func set_dizziness(value : int):
+func set_dizziness(value : int) -> void:
 	_dizziness = value
 	# if we were dizzier in a previous round than this one, we want to avoid
 	# unintentionally changing rotation.
