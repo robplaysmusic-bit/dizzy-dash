@@ -9,8 +9,9 @@ const MAX_RUN_SPEED : float = 400.0
 const RUN_ACCEL : float = 500.0
 
 func _ready() -> void:
-	DizzyManager.set_dizziness(1000)
-
+	# placeholder until we link spin game with levels
+	DizzyManager.set_dizziness(10)
+	
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var velocity := state.get_linear_velocity()
 	var step := state.get_step()

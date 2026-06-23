@@ -26,7 +26,7 @@ const _info : Dictionary[Dizzy, Array] = {
 var _tier : Dizzy = Dizzy.NOT_DIZZY
 # Value determined by player in spin mini-game - no upper bound
 # basic tiers of player impact:
-var _dizziness : int: 
+var _dizziness : int = MAX_STANDARD_DIZZY: 
 	set(value):
 		_dizziness = value
 		if _dizziness == MAX_NOT_DIZZY : 
@@ -49,7 +49,7 @@ var _dizziness : int:
 var rotation_increasing : bool = true
 @onready var rotation_change_timer: Timer = $RotationChangeTimer
 
-
+# Dizziness should be set before loading the next level
 func set_dizziness(value : float):
 	_dizziness = value
 
