@@ -7,9 +7,15 @@ const PI_2: float = PI * 2
 const FUDGE: float = 0.01
 
 @onready var line: Line2D = $Line2D
+@onready var time_remaining: Label = $CanvasLayer/MarginContainer/TimeRemaining
+@onready var spin_time: Timer = $SpinTime
+@onready var warning_timer: Timer = $WarningTimer
 
 ## how long you can wait without losing your current spin, a lower value means you have to spin faster for it to register
 @export var pause_time_msec: int
+# time, in seconds, that the player has to spin their spins
+@export var mini_game_time : float
+@export var warning_time : float
 
 # number of completed spins (negative if spinning counter clockwise)
 var spins: int = 0
@@ -23,8 +29,20 @@ var rev_goals: Array[float]
 var start_direction: float = 10
 # time in msec that you last progressed your spin
 var last_progress_msec: int = 0
+# set when the game is over - tells us to stop counting spins
+var disabled : bool = false
+
+func _ready() -> void:
+	_update_timer_label()
+	spin_time.start(mini_game_time)
+	warning_timer.start(warning_time)
 
 func _process(_delta: float) -> void:
+	if disabled : return
+	
+	mini_game_time -= _delta
+	_update_timer_label()
+	
 	var input := Input.get_vector("left", "right", "up", "down")
 	if input == Vector2.ZERO:
 		return
@@ -76,3 +94,25 @@ func angle_in_range(angle: float, start: float, end: float) -> bool:
 		while angle > start:
 			angle -= PI_2
 		return angle < start && angle >= end - FUDGE
+
+func _update_timer_label() -> void:
+	var seconds_remaining = int(mini_game_time)
+	var ms_remaining = (mini_game_time - seconds_remaining) * 100
+	print("sec: ", str(seconds_remaining), " ms: ", str(ms_remaining))
+	time_remaining.text = "%02d.%02d" % [seconds_remaining, ms_remaining]
+
+func _on_spin_time_timeout() -> void:
+	disabled = true
+	# account for timing variation
+	time_remaining.text = "00.00"
+	DizzyManager.set_dizziness(abs(spins))
+
+
+func _on_warning_timer_timeout() -> void:
+	var tween_color : Tween = get_tree().create_tween()
+	tween_color.tween_method(
+		func(color:Color) -> void:
+			time_remaining.add_theme_color_override("font_color", color),
+			Color.WHITE, Color.RED,
+			mini_game_time
+	)

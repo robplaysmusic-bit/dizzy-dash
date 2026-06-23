@@ -50,7 +50,7 @@ var rotation_increasing : bool = true
 @onready var rotation_change_timer: Timer = $RotationChangeTimer
 
 # Dizziness should be set before loading the next level
-func set_dizziness(value : float):
+func set_dizziness(value : int):
 	_dizziness = value
 
 func get_dizziness() -> float:
