@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://dictciv868hqh" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://deqpw2sw4iuc0" path="res://assets/sprites/placeholder-protag.png" id="2_rkbax"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g1dw6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkbax"]
 atlas = ExtResource("2_rkbax")
-region = Rect2(0, 0, 27, 26)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c6smh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g1dw6")
+"texture": SubResource("AtlasTexture_rkbax")
 }],
 "loop": 1,
 "name": &"default",
@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_853w4"]
-radius = 12.0
+radius = 16.0
 
 [node name="Player" type="RigidBody2D" unique_id=715659999]
 z_index = 10
@@ -30,4 +30,5 @@ script = ExtResource("1_oul6g")
 sprite_frames = SubResource("SpriteFrames_c6smh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1477498328]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_853w4")

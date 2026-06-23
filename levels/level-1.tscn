@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://ch75j5f8xuxt8"]
 
-[ext_resource type="Script" uid="uid://dhdjbp8km7dxy" path="res://levels/level.gd" id="1_7068u"]
-[ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_mobua"]
-[ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="3_jmmie"]
-[ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_focia"]
+[ext_resource type="Script" uid="uid://dhdjbp8km7dxy" path="res://levels/level.gd" id="1_471vb"]
+[ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="1_gp3yc"]
+[ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="2_68uyt"]
+[ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_i5boj"]
 
 [node name="Level1" type="Node2D" unique_id=938879597]
-script = ExtResource("1_7068u")
+script = ExtResource("1_471vb")
 platinum_time = "00:10.00"
 gold_time = "00:12.00"
 silver_time = "00:15.00"
 bronze_time = "00:20.00"
 next_course = "uid://cwnxw1d3u2opj"
 
-[node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_mobua")]
+[node name="Player" parent="." unique_id=715659999 instance=ExtResource("1_gp3yc")]
 position = Vector2(20, 624)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
 
-[node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("3_jmmie")]
+[node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("2_68uyt")]
 
-[node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("4_focia")]
+[node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("4_i5boj")]
 position = Vector2(990, 187.00003)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1133183081]
