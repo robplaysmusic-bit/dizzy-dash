@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dwipdyy12kdpv"]
 
 [ext_resource type="Script" uid="uid://ckku2j5p3rmu2" path="res://menus/timer_ui.gd" id="1_xh811"]
+[ext_resource type="PackedScene" uid="uid://ch1ec0f7hh6as" path="res://menus/dizziness_ui.tscn" id="2_d7r4t"]
 
 [node name="TimerUI" type="CanvasLayer" unique_id=1665238461]
 script = ExtResource("1_xh811")
@@ -59,3 +60,13 @@ theme_override_colors/font_color = Color(0.7672467, 0.4495191, 0.030679695, 1)
 theme_override_font_sizes/font_size = 16
 text = "00:32.00"
 horizontal_alignment = 2
+
+[node name="DizzinessUi" parent="." unique_id=101819069 instance=ExtResource("2_d7r4t")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 127.0
+offset_bottom = 33.0
+grow_horizontal = 1
+grow_vertical = 1
+dizzy_scale = 35.0
