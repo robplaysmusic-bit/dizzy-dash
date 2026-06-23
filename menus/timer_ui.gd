@@ -6,6 +6,7 @@ var TIME_MULTIPLIER_NUMERATOR : float = DizzyManager.MAX_STANDARD_DIZZY
 
 var actual_seconds_elapsed : float = 0
 var time_multiplier : float = 01.0
+var stopped : bool = false
 
 @onready var current_time: Label = $MarginContainer/VBoxContainer/CurrentTime
 @onready var personal_best: Label = $MarginContainer/VBoxContainer/PersonalBest
@@ -21,6 +22,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if stopped: return
+	
 	actual_seconds_elapsed += delta
 	
 	# Format seconds into Minutes:Seconds (MM:SS)
@@ -30,10 +33,14 @@ func _process(delta: float) -> void:
 	
 	
 	# Update the UI label text using zero padding
-	current_time.text = "%02d:%02d.%02d" % [minutes_displayed, seconds_displayed, millisconds_displayed]
+	current_time.text = "%02d:%02d.%02d" % [minutes_displayed, seconds_displayed % 60, millisconds_displayed % 100]
 
 func initialize_goal_times(plat : String, gold : String, silver : String, bronze : String):
 	platinum_time.text = plat
 	gold_time.text = gold
 	silver_time.text = silver
 	bronze_time.text = bronze
+
+func halt_timer():
+	stopped = true
+	# TODO: Color current time based on medals. Some confetti or something.

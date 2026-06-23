@@ -9,7 +9,7 @@ const MAX_RUN_SPEED : float = 400.0
 const RUN_ACCEL : float = 500.0
 
 func _ready() -> void:
-	DizzyManager.set_dizziness(1200)
+	DizzyManager.set_dizziness(10)
 	#pass
 	
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
