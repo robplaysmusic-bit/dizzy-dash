@@ -10,7 +10,8 @@ const RUN_ACCEL : float = 500.0
 
 func _ready() -> void:
 	# placeholder until we link spin game with levels
-	DizzyManager.set_dizziness(100)
+	#DizzyManager.set_dizziness(100)
+	pass
 	
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var velocity := state.get_linear_velocity()

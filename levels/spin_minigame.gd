@@ -98,7 +98,6 @@ func angle_in_range(angle: float, start: float, end: float) -> bool:
 func _update_timer_label() -> void:
 	var seconds_remaining = int(mini_game_time)
 	var ms_remaining = (mini_game_time - seconds_remaining) * 100
-	print("sec: ", str(seconds_remaining), " ms: ", str(ms_remaining))
 	time_remaining.text = "%02d.%02d" % [seconds_remaining, ms_remaining]
 
 func _on_spin_time_timeout() -> void:
@@ -106,6 +105,7 @@ func _on_spin_time_timeout() -> void:
 	# account for timing variation
 	time_remaining.text = "00.00"
 	DizzyManager.set_dizziness(abs(spins))
+	#TODO: load the next course
 
 
 func _on_warning_timer_timeout() -> void:
