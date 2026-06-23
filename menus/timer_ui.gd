@@ -18,7 +18,10 @@ var stopped : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var dizziness = DizzyManager.get_dizziness()
-	time_multiplier = TIME_MULTIPLIER_NUMERATOR / dizziness 
+	if dizziness != 0:
+		time_multiplier = TIME_MULTIPLIER_NUMERATOR / dizziness 
+	else: #avoid divide by 0
+		time_multiplier = TIME_MULTIPLIER_NUMERATOR
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

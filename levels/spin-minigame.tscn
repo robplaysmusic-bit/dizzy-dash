@@ -4,6 +4,35 @@
 
 [node name="SpinMinigame" type="Node2D" unique_id=1488981358]
 script = ExtResource("1_mcqe1")
+mini_game_time = 10.0
+warning_time = 5.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1061008089]
 points = PackedVector2Array(0, 0, 200, 0)
+
+[node name="SpinTime" type="Timer" parent="." unique_id=1852956072]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1944394932]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1597537354]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_right = 21.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="TimeRemaining" type="Label" parent="CanvasLayer/MarginContainer" unique_id=892165893]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "10.00"
+
+[node name="WarningTimer" type="Timer" parent="." unique_id=360836240]
+one_shot = true
+
+[connection signal="timeout" from="SpinTime" to="." method="_on_spin_time_timeout"]
+[connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]

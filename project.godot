@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="dizzy-dash"
-run/main_scene="uid://dovybpy6nl3r4"
+run/main_scene="uid://djohlgmjteldu"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DizzyManager="*uid://bpyaw84lobups"
+LevelLoader="*uid://bg3q2q8lsl4pb"
 
 [debug]
 
