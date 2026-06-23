@@ -25,12 +25,10 @@ func _process(delta: float) -> void:
 	if stopped: return
 	
 	actual_seconds_elapsed += delta
-	
-	# Format seconds into Minutes:Seconds (MM:SS)
+	# Format seconds into Minutes:Seconds.Millizcons (MM:SS.MS)
 	var seconds_displayed : int = actual_seconds_elapsed * time_multiplier
 	var minutes_displayed : int = seconds_displayed / 60
 	var millisconds_displayed : int = ((actual_seconds_elapsed * time_multiplier) - seconds_displayed) * 100
-	
 	
 	# Update the UI label text using zero padding
 	current_time.text = "%02d:%02d.%02d" % [minutes_displayed, seconds_displayed % 60, millisconds_displayed % 100]

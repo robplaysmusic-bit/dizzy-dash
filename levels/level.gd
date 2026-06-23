@@ -19,4 +19,5 @@ func _process(delta: float) -> void:
 
 
 func _on_finish_line_crossed() -> void:
+	# TODO: Results screen, start next spin mini-game
 	timer_ui.halt_timer()
