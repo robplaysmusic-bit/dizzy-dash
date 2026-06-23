@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://4nwdhi7v7ey4"]
+
+[ext_resource type="Script" uid="uid://dhdjbp8km7dxy" path="res://levels/level.gd" id="1_im8po"]
+[ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_faynr"]
+[ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="3_lsufr"]
+[ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_7ax6e"]
+
+[node name="Level1" type="Node2D" unique_id=938879597]
+script = ExtResource("1_im8po")
+platinum_time = "00:10.00"
+gold_time = "00:12.00"
+silver_time = "00:15.00"
+bronze_time = "00:20.00"
+next_course = "uid://dovybpy6nl3r4"
+
+[node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_faynr")]
+position = Vector2(20, 624)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
+
+[node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("3_lsufr")]
+
+[node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("4_7ax6e")]
+position = Vector2(822, 590)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1133183081]
+position = Vector2(-6, 578)
+points = PackedVector2Array(175, 66, 4, 67, 70, -280, 105, -487, 496, -567, 789, -588, 940, -491, 953, -352, 957.9424, -264.6845, 937, 12)
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=941638691]
+position = Vector2(-12, 1156)
+points = PackedVector2Array(182, -514, 222, -677, 342, -878, 518, -939, 688, -861, 687, -712, 727, -529)
+
+[node name="Panel" type="Panel" parent="." unique_id=1059654274]
+offset_left = 65.0
+offset_top = 271.0
+offset_right = 107.2631
+offset_bottom = 499.91553
+rotation = -1.0227629
+
+[node name="Label" type="Label" parent="Panel" unique_id=1628487241]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "low
+wall"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1763670823]
+offset_left = 683.0
+offset_top = 309.0
+offset_right = 942.0
+offset_bottom = 344.0
+
+[node name="Label" type="Label" parent="Panel2" unique_id=621801397]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "pit"
