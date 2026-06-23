@@ -17,6 +17,9 @@ const FUDGE: float = 0.01
 @export var mini_game_time : float
 @export var warning_time : float
 
+var total_game_time_msec: int
+var mini_game_start_msec: int
+
 # number of completed spins (negative if spinning counter clockwise)
 var spins: int = 0
 # next angle range index needed to continue spin in either direction (<0 if unset)
@@ -35,13 +38,15 @@ var disabled : bool = false
 func _ready() -> void:
 	DizzyManager.set_dizziness(0)
 	_update_timer_label()
+	total_game_time_msec = int(mini_game_time * 1000)
+	mini_game_start_msec = Time.get_ticks_msec()
 	spin_time.start(mini_game_time)
 	warning_timer.start(warning_time)
 
 func _process(_delta: float) -> void:
 	if disabled : return
 	
-	mini_game_time -= _delta
+	mini_game_time = (total_game_time_msec - (Time.get_ticks_msec() - mini_game_start_msec)) / 1000.0
 	_update_timer_label()
 	
 	var input := Input.get_vector("left", "right", "up", "down")

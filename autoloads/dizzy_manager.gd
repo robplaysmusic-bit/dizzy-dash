@@ -90,3 +90,12 @@ func _on_rotation_change_timer_timeout() -> void:
 			_dizziness += 1
 		else:
 			_dizziness -= 1
+
+func format_time(time: float) -> String:
+	var seconds := int(time)
+	@warning_ignore("integer_division")
+	var minutes := seconds / 60
+	var subsec := int(fmod(time, 1.0) * 100.0)
+	
+	# Update the UI label text using zero padding
+	return "%02d:%02d.%02d" % [minutes, seconds % 60, subsec % 100]

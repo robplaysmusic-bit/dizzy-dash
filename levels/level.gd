@@ -1,9 +1,9 @@
 class_name Level extends Node2D
 
-@export var platinum_time : String = "00:00.00"
-@export var gold_time : String = "00:00.00"
-@export var silver_time : String = "00:00.00"
-@export var bronze_time : String = "00:00.00"
+@export var platinum_time : float = 0
+@export var gold_time : float = 0
+@export var silver_time : float = 0
+@export var bronze_time : float = 0
 @export_file("*.tscn") var next_course : String
 
 @onready var timer_ui: TimerUI = $TimerUI

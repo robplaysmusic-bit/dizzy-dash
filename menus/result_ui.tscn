@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ciwrgipaomwj7"]
+
+[ext_resource type="Script" uid="uid://ofg720on0bqa" path="res://menus/result_ui.gd" id="1_77ax5"]
+[ext_resource type="PackedScene" uid="uid://o52rpviwe7rp" path="res://menus/result_row.tscn" id="2_nmg3m"]
+
+[node name="ResultUI" type="VBoxContainer" unique_id=873171624]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_77ax5")
+
+[node name="ResultRow" parent="." unique_id=1031830375 instance=ExtResource("2_nmg3m")]
+layout_mode = 2
+
+[node name="ResultRow2" parent="." unique_id=1706523300 instance=ExtResource("2_nmg3m")]
+layout_mode = 2
+
+[node name="ResultRow3" parent="." unique_id=622882069 instance=ExtResource("2_nmg3m")]
+layout_mode = 2
+
+[node name="ResultRow4" parent="." unique_id=543815126 instance=ExtResource("2_nmg3m")]
+layout_mode = 2
+
+[node name="ResultRow5" parent="." unique_id=457100944 instance=ExtResource("2_nmg3m")]
+layout_mode = 2
+
+[node name="ResultRow6" parent="." unique_id=1555637630 instance=ExtResource("2_nmg3m")]
+layout_mode = 2
