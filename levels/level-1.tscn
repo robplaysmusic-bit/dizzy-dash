@@ -11,7 +11,7 @@ platinum_time = "00:10.00"
 gold_time = "00:12.00"
 silver_time = "00:15.00"
 bronze_time = "00:20.00"
-next_course = "uid://cwnxw1d3u2opj"
+next_course = "uid://dovybpy6nl3r4"
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("1_gp3yc")]
 position = Vector2(20, 624)
