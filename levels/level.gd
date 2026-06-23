@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 
 func _on_finish_line_crossed() -> void:
-	# TODO: Results screen, start next spin mini-game
+	# TODO: Results screen, actually have them confirm before starting the next level (or retrying this one)
 	timer_ui.halt_timer()
-	LevelLoader.set_next_course(next_course)
+	LevelLoader.load_spin_game(next_course)
 	queue_free()

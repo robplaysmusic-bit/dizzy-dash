@@ -107,7 +107,6 @@ func _on_spin_time_timeout() -> void:
 	LevelLoader.load_next_course()
 	queue_free()
 
-
 func _on_warning_timer_timeout() -> void:
 	var tween_color : Tween = get_tree().create_tween()
 	tween_color.tween_method(

@@ -5,9 +5,7 @@ extends Node
 
 const SPIN_GAME : Resource = preload("res://levels/spin-test.tscn")
 
-
-
-func set_next_course(next : String) -> void:
+func load_spin_game(next : String) -> void:
 	next_course = next
 	animation_player.play("fade_to_black")
 	await animation_player.animation_finished
