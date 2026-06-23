@@ -2,5 +2,101 @@
 
 [ext_resource type="Script" uid="uid://bkfjrb5gfi4i7" path="res://levels/level_loader.gd" id="1_3hhvs"]
 
+[sub_resource type="Animation" id="Animation_3hhvs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b1ccj"]
+resource_name = "fade_from_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_h5o7e"]
+resource_name = "fade_to_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qd86"]
+_data = {
+&"RESET": SubResource("Animation_3hhvs"),
+&"fade_from_black": SubResource("Animation_b1ccj"),
+&"fade_to_black": SubResource("Animation_h5o7e")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt2tb"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="LevelLoader" type="Node" unique_id=450007278]
 script = ExtResource("1_3hhvs")
+next_course = "uid://dovybpy6nl3r4"
+
+[node name="SceneTransitionCanvasLayer" type="CanvasLayer" parent="." unique_id=1110105337]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneTransitionCanvasLayer" unique_id=1691350921]
+libraries/ = SubResource("AnimationLibrary_4qd86")
+
+[node name="Panel" type="Panel" parent="SceneTransitionCanvasLayer" unique_id=1016506103]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tt2tb")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cwnxw1d3u2opj"]
+
+[ext_resource type="Script" uid="uid://dhdjbp8km7dxy" path="res://levels/level.gd" id="1_uwesj"]
+[ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_ns7l7"]
+[ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="3_wo0s5"]
+[ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="4_l60ws"]
+
+[node name="TestLevel" type="Node2D" unique_id=1600044845]
+script = ExtResource("1_uwesj")
+next_course = "uid://dovybpy6nl3r4"
+metadata/_custom_type_script = "uid://dhdjbp8km7dxy"
+
+[node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_ns7l7")]
+position = Vector2(-2, 5)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2039649119]
+
+[node name="Label" type="Label" parent="." unique_id=2079337662]
+offset_left = -97.0
+offset_top = -105.0
+offset_right = 76.0
+offset_bottom = -82.0
+text = "different refrence text"
+
+[node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("3_wo0s5")]
+position = Vector2(280, -188)
+
+[node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("4_l60ws")]

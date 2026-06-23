@@ -4,6 +4,7 @@ class_name Level extends Node2D
 @export var gold_time : String = "00:00.00"
 @export var silver_time : String = "00:00.00"
 @export var bronze_time : String = "00:00.00"
+@export_file("*.tscn") var next_course : String
 
 @onready var timer_ui: TimerUI = $TimerUI
 @onready var finish_line: FinishLine = $FinishLine
@@ -21,3 +22,5 @@ func _process(delta: float) -> void:
 func _on_finish_line_crossed() -> void:
 	# TODO: Results screen, start next spin mini-game
 	timer_ui.halt_timer()
+	LevelLoader.set_next_course(next_course)
+	queue_free()

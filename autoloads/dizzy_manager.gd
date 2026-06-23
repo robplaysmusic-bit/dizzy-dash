@@ -29,7 +29,7 @@ var _tier : Dizzy = Dizzy.NOT_DIZZY
 var _dizziness : int = MAX_STANDARD_DIZZY: 
 	set(value):
 		_dizziness = value
-		if _dizziness == MAX_NOT_DIZZY : 
+		if _dizziness <= MAX_NOT_DIZZY : 
 			_tier = Dizzy.NOT_DIZZY
 		elif _dizziness <= MAX_SLIGHTLY_DIZZY :
 			_tier = Dizzy.SLIGHTLY
@@ -52,6 +52,9 @@ var rotation_increasing : bool = true
 # Dizziness should be set before loading the next level
 func set_dizziness(value : int):
 	_dizziness = value
+	# if we were dizzier in a previous round than this one, we want to avoid
+	# unintentionally changing rotation.
+	rotation_change_timer.stop()
 
 func get_dizziness() -> float:
 	return _dizziness

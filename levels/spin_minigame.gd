@@ -102,10 +102,10 @@ func _update_timer_label() -> void:
 
 func _on_spin_time_timeout() -> void:
 	disabled = true
-	# account for timing variation
-	time_remaining.text = "00.00"
+	time_remaining.text = "00.00" # account for timing variation
 	DizzyManager.set_dizziness(abs(spins))
-	#TODO: load the next course
+	LevelLoader.load_next_course()
+	queue_free()
 
 
 func _on_warning_timer_timeout() -> void:
