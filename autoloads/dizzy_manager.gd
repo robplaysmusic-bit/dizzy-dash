@@ -1,26 +1,26 @@
 extends Node
 
 enum Dizzy { NOT_DIZZY, SLIGHTLY, SOMEWHAT, STANDARD, VERY, EXTREMELY, OH_NO }
-const MAX_NOT_DIZZY : int = 0
-const MAX_SLIGHTLY_DIZZY : int = 50
-const MAX_SOMEWHAT_DIZZY : int = 100
-const MAX_STANDARD_DIZZY : int = 200
-const MAX_VERY_DIZZY : int = 300
-const MAX_EXTREMELY_DIZZY : int = 500
-const MAX_OH_NO_DIZZY : int = 1e10
+const MAX_NOT_DIZZY : int = 8
+const MAX_SLIGHTLY_DIZZY : int = 16
+const MAX_SOMEWHAT_DIZZY : int = 24
+const MAX_STANDARD_DIZZY : int = 32
+const MAX_VERY_DIZZY : int = 40
+const MAX_EXTREMELY_DIZZY : int = 50
+const MAX_OH_NO_DIZZY : int = 500
 
 const MIN_ROTATION_INDEX : int = 0
 const MAX_ROTATION_INDEX : int = 1
 const ROTATION_CHANGE_INDEX : int = 2
 # tier : [min angle, max angle, angle change rate]
 const _info : Dictionary[Dizzy, Array] = {
-	Dizzy.NOT_DIZZY : 		[0,		0,		0],
-	Dizzy.SLIGHTLY : 		[175, 	185,	0.0], # centered around 180
-	Dizzy.SOMEWHAT : 		[30, 	60,		0.0], # centered around 45
-	Dizzy.STANDARD : 		[60, 	120,	0.0], # centered around 90
-	Dizzy.VERY : 			[60, 	120,	1.0], 
-	Dizzy.EXTREMELY: 		[60, 	120,	0.5],
-	Dizzy.OH_NO :			[30,	150,	0.01]
+	Dizzy.NOT_DIZZY : 		[0,		0,		0.0],
+	Dizzy.SLIGHTLY : 		[176, 	184,	0.0], # centered around 180
+	Dizzy.SOMEWHAT : 		[41, 	49,		0.0], # centered around 45
+	Dizzy.STANDARD : 		[56, 	64,		0.0], # centered around 60
+	Dizzy.VERY : 			[86, 	94,		0.5], # centered around 90
+	Dizzy.EXTREMELY: 		[80, 	100,	0.1], # centered around 90
+	Dizzy.OH_NO :			[70,	110,	0.01] # centered around 90
 }
 
 var _tier : Dizzy = Dizzy.NOT_DIZZY
