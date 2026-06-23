@@ -23,7 +23,6 @@
 			"tasks": [
 				"f3a1b2f0-fbb3-4750-9781-dc2b2b1e902e",
 				"97d21b2c-d3a9-4080-92df-685b35c1cc8a",
-				"3e998141-4593-44f3-8d6b-1a511afa60eb",
 				"43a6856e-5f3e-4895-ad4a-8acbb917183e",
 				"be93adba-5249-4fd1-bc52-eb7e9748845b",
 				"9505bf9e-ff09-46ef-b940-d2ada53ebba9",
@@ -36,7 +35,9 @@
 			"uuid": "daccdce7-7b64-4350-9d03-c951e7bbab2c",
 			"title": "Doing",
 			"tasks": [
-				"891a0e66-84a8-43c2-a705-9999e79d6f17"
+				"3e998141-4593-44f3-8d6b-1a511afa60eb",
+				"891a0e66-84a8-43c2-a705-9999e79d6f17",
+				"2394bda5-d305-499a-b6b7-5f7b0683da6b"
 			]
 		},
 		{
@@ -161,6 +162,13 @@
 		{
 			"uuid": "8e8698d8-bc51-4203-8b4d-1258823a5fec",
 			"title": "Web build",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "2394bda5-d305-499a-b6b7-5f7b0683da6b",
+			"title": "walls",
 			"description": "",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []

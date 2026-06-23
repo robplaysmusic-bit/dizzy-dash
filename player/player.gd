@@ -7,7 +7,11 @@ const WALK_DEACCEL : float = 1000.0
 # not convinced this should actually be a thing
 const MAX_RUN_SPEED : float = 400.0
 const RUN_ACCEL : float = 500.0
+const JUMP_TIME : float = 0.5
 
+
+@onready var jump_timer: Timer = $JumpTimer
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var velocity := state.get_linear_velocity()
@@ -16,6 +20,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# read player inputs and apply dizziness
 	var raw_input = Input.get_vector("left", "right", "up", "down")
 	var dizzy_input = DizzyManager.apply_dizziness(raw_input)
+
+	if Input.is_action_just_pressed("jump") and jump_timer.is_stopped():
+		_handle_jump()
 
 	# left / right movement
 	if dizzy_input.x < 0:
@@ -52,3 +59,12 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	
 
 	state.set_linear_velocity(velocity)
+
+func _handle_jump() -> void:
+	var jump_tween : Tween = get_tree().create_tween()
+	jump_tween.tween_property(sprite, "scale", Vector2(1.5, 1.5), JUMP_TIME/2)
+	await jump_tween.finished
+	var fall_tween : Tween = get_tree().create_tween()
+	fall_tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), JUMP_TIME/2)
+	
+	#TODO: send some signal, or change some property that let's us pass over pits and low walls

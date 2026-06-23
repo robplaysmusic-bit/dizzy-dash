@@ -32,3 +32,7 @@ sprite_frames = SubResource("SpriteFrames_c6smh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1477498328]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_853w4")
+
+[node name="JumpTimer" type="Timer" parent="." unique_id=1762756409]
+wait_time = 0.2
+one_shot = true

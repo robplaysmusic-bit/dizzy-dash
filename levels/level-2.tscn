@@ -23,14 +23,6 @@ position = Vector2(20, 624)
 [node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("4_focia")]
 position = Vector2(822, 590)
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1133183081]
-position = Vector2(-6, 578)
-points = PackedVector2Array(175, 66, 4, 67, 70, -280, 105, -487, 496, -567, 789, -588, 940, -491, 953, -352, 957.9424, -264.6845, 937, 12)
-
-[node name="Line2D2" type="Line2D" parent="." unique_id=941638691]
-position = Vector2(-12, 1156)
-points = PackedVector2Array(182, -514, 222, -677, 342, -878, 518, -939, 688, -861, 687, -712, 727, -529)
-
 [node name="Panel" type="Panel" parent="." unique_id=1059654274]
 offset_left = 65.0
 offset_top = 271.0
@@ -56,3 +48,18 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "pit"
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1398681258]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=2057672155]
+position = Vector2(-13, 646)
+build_mode = 1
+polygon = PackedVector2Array(0, -1, 109, -555, 501, -636, 794, -654, 943, -558, 963, -336, 943, -25, 730, -15, 686, -196, 689, -348, 510, -423, 344, -371, 222, -163, 181, 0, 6, -1, 0, 0, 0, 0, 0, 0)
+
+[node name="Line2D" type="Line2D" parent="Walls" unique_id=1133183081]
+position = Vector2(-6, 578)
+points = PackedVector2Array(175, 66, 4, 67, 70, -280, 105, -487, 496, -567, 789, -588, 940, -491, 953, -352, 957.9424, -264.6845, 934, 26)
+
+[node name="Line2D2" type="Line2D" parent="Walls" unique_id=941638691]
+position = Vector2(-12, 1156)
+points = PackedVector2Array(182, -514, 222, -677, 342, -878, 518, -939, 688, -861, 687, -712, 726, -553)

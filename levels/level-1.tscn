@@ -23,10 +23,17 @@ position = Vector2(20, 624)
 [node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("4_i5boj")]
 position = Vector2(990, 187.00003)
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1133183081]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1515152671]
+
+[node name="Line2D" type="Line2D" parent="Walls" unique_id=1133183081]
 position = Vector2(-6, 578)
 points = PackedVector2Array(83, 69, 4, 67, 37, -223, 194, -352, 468, -459, 630, -391, 643, -143, 728, -71, 870, -186, 883, -378, 891, -571)
 
-[node name="Line2D2" type="Line2D" parent="." unique_id=941638691]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=108898892]
+position = Vector2(-6, 646)
+build_mode = 1
+polygon = PackedVector2Array(0, -1, 35, -292, 191, -422, 470, -525, 628, -458, 642, -212, 726, -141, 867, -247, 889, -643, 1110, -644, 1107, -219, 1000, -69, 846, 2, 612, 13, 511, -97, 459, -349, 317, -315, 184, -237, 86, 3, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Line2D2" type="Line2D" parent="Walls" unique_id=941638691]
 position = Vector2(-12, 1156)
 points = PackedVector2Array(91, -507, 189, -743, 325, -829, 475, -864, 519, -611, 617, -496, 855, -511, 1006, -580, 1112, -737, 1113, -958, 1116, -1145)
