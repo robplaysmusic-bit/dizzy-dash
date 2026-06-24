@@ -11,6 +11,8 @@ scale = Vector2(10, 10)
 script = ExtResource("1_18akx")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1885136021]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1167556788]
 position = Vector2(-0.5, 0)
