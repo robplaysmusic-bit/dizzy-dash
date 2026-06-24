@@ -80,11 +80,11 @@ layout_mode = 2
 [node name="Label" type="Label" parent="M/V/HBoxContainer" unique_id=9292614]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Restart (B/Backspace)"
+text = "Restart (Right Face Button / Backspace)"
 
 [node name="Label2" type="Label" parent="M/V/HBoxContainer" unique_id=915444558]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "(A/Space) Next Level"
+text = "(Bottom Face Button / Space) Next Level"
 horizontal_alignment = 2

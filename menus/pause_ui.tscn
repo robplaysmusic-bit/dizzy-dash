@@ -55,14 +55,14 @@ layout_mode = 2
 [node name="Controls" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=654880532]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-text = "Restart (B/Backspace)"
+theme_override_font_sizes/font_size = 18
+text = "Restart (Right Face Button /Backspace)"
 vertical_alignment = 1
 
 [node name="Controls2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=112526605]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Unpause (Start/Esc)"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -70,7 +70,7 @@ vertical_alignment = 1
 [node name="Controls3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=684549837]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "Full restart (???)"
 horizontal_alignment = 2
 vertical_alignment = 1
