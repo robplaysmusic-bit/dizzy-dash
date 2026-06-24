@@ -21,27 +21,27 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
-				"f3a1b2f0-fbb3-4750-9781-dc2b2b1e902e",
-				"97d21b2c-d3a9-4080-92df-685b35c1cc8a",
 				"43a6856e-5f3e-4895-ad4a-8acbb917183e",
 				"be93adba-5249-4fd1-bc52-eb7e9748845b",
-				"9505bf9e-ff09-46ef-b940-d2ada53ebba9",
 				"52765537-9e77-49cb-9964-a9907a9dcf54",
 				"1b67d14a-4ebd-4e61-832f-aab137b16e14",
-				"8e8698d8-bc51-4203-8b4d-1258823a5fec"
+				"a39ee5b7-edc3-4586-bc99-be648baebc10"
 			]
 		},
 		{
 			"uuid": "daccdce7-7b64-4350-9d03-c951e7bbab2c",
 			"title": "Doing",
 			"tasks": [
-				"891a0e66-84a8-43c2-a705-9999e79d6f17"
+				"891a0e66-84a8-43c2-a705-9999e79d6f17",
+				"97d21b2c-d3a9-4080-92df-685b35c1cc8a"
 			]
 		},
 		{
 			"uuid": "4b0366d0-12f4-4b8d-9f74-47efefb0db8f",
 			"title": "Done",
 			"tasks": [
+				"9505bf9e-ff09-46ef-b940-d2ada53ebba9",
+				"f3a1b2f0-fbb3-4750-9781-dc2b2b1e902e",
 				"2394bda5-d305-499a-b6b7-5f7b0683da6b",
 				"3e998141-4593-44f3-8d6b-1a511afa60eb",
 				"58ef9e98-32a6-42de-b268-c3c36437922b",
@@ -160,17 +160,17 @@
 			"steps": []
 		},
 		{
-			"uuid": "8e8698d8-bc51-4203-8b4d-1258823a5fec",
-			"title": "Web build",
+			"uuid": "2394bda5-d305-499a-b6b7-5f7b0683da6b",
+			"title": "walls",
 			"description": "",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
 		},
 		{
-			"uuid": "2394bda5-d305-499a-b6b7-5f7b0683da6b",
-			"title": "walls",
+			"uuid": "a39ee5b7-edc3-4586-bc99-be648baebc10",
+			"title": "Distinguish between controller types (a/b swapped w/ nintendo & xbox)",
 			"description": "",
-			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
 			"steps": []
 		}
 	],

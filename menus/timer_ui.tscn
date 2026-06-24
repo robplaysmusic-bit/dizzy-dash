@@ -74,5 +74,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="ResultUI" parent="." unique_id=637257714 instance=ExtResource("3_q3r1d")]
+visible = false
 
 [node name="PauseUI" parent="." unique_id=694073540 instance=ExtResource("4_xw2qq")]
+visible = false
