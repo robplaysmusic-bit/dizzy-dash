@@ -1,10 +1,9 @@
-[gd_scene format=3 uid="uid://ch75j5f8xuxt8"]
+[gd_scene format=3 uid="uid://dovybpy6nl3r4"]
 
 [ext_resource type="Script" uid="uid://dhdjbp8km7dxy" path="res://levels/level.gd" id="1_471vb"]
 [ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="1_gp3yc"]
 [ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="2_68uyt"]
 [ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_i5boj"]
-[ext_resource type="PackedScene" uid="uid://ciwrgipaomwj7" path="res://menus/result_ui.tscn" id="5_ogvtk"]
 
 [node name="Level1" type="Node2D" unique_id=938879597]
 script = ExtResource("1_471vb")
@@ -12,7 +11,7 @@ platinum_time = 10.0
 gold_time = 12.0
 silver_time = 15.0
 bronze_time = 25.0
-next_course = "uid://dovybpy6nl3r4"
+next_course = "uid://d1swo5fc3sqe7"
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("1_gp3yc")]
 position = Vector2(20, 624)
@@ -36,9 +35,6 @@ points = PackedVector2Array(83, 69, 4, 67, 37, -223, 194, -352, 468, -459, 630, 
 position = Vector2(-6, 646)
 build_mode = 1
 polygon = PackedVector2Array(0, -1, 35, -292, 191, -422, 470, -525, 628, -458, 642, -212, 726, -141, 867, -247, 889, -643, 1110, -644, 1107, -219, 1000, -69, 846, 2, 612, 13, 511, -97, 459, -349, 317, -315, 184, -237, 86, 3, 0, 0, 0, 0, 0, 0, 0, 0)
-
-
-[node name="ResultUI" parent="TimerUI" unique_id=873171624 instance=ExtResource("5_ogvtk")]
 
 [node name="Line2D2" type="Line2D" parent="Walls" unique_id=941638691]
 position = Vector2(-12, 1156)

@@ -9,29 +9,39 @@ class_name Level extends Node2D
 @onready var player: Player = $Player
 @onready var timer_ui: TimerUI = $TimerUI
 @onready var finish_line: FinishLine = $FinishLine
-@onready var result_ui: ResultUI = $TimerUI/ResultUI
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	result_ui.visible = false
+	# never pause this node, since it manages pausing
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	timer_ui.pause_ui.visible = false
+	timer_ui.result_ui.visible = false
 	finish_line.crossed.connect(_on_finish_line_crossed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	timer_ui.initialize_goal_times(platinum_time, gold_time, silver_time, bronze_time)
-	if !player.active:
-		if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump"):
+		if timer_ui.result_ui.visible:
 			DizzyManager.previous_best_time = INF
 			LevelLoader.load_spin_game(next_course)
 			queue_free()
-		elif Input.is_action_pressed("back"):
+	elif Input.is_action_pressed("back"):
+		if timer_ui.result_ui.visible or timer_ui.pause_ui.visible:
+			get_tree().paused = false
 			LevelLoader.load_next_course()
 			queue_free()
+
+	if Input.is_action_just_pressed("menu"):
+		if !timer_ui.result_ui.visible:
+			var pause := !timer_ui.pause_ui.visible
+			timer_ui.set_pause(pause)
+			get_tree().paused = pause
 
 func _on_finish_line_crossed() -> void:
 	player.active = false
 	var result := timer_ui.halt_timer()
 	var previous_best: float = DizzyManager.previous_best(result)
-	result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, previous_best)
-	result_ui.visible = true
+	timer_ui.result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, previous_best)
+	timer_ui.result_ui.visible = true
