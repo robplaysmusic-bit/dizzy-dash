@@ -8,8 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://c07q1p1go1g0" path="res://levels/components/ice.tscn" id="6_lsufr"]
 [ext_resource type="PackedScene" uid="uid://1pge4wljhsbh" path="res://levels/components/low_wall.tscn" id="7_7ax6e"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt2tb"]
+size = Vector2(30, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ax6e"]
+size = Vector2(138.70589, 44.47059)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03dd7"]
+bg_color = Color(4.6205523e-06, 0.71561927, 0.7156193, 1)
+
 [node name="Level3" type="Node2D" unique_id=938879597]
 script = ExtResource("1_im8po")
+platinum_time = 8.0
+gold_time = 10.0
+silver_time = 15.0
+bronze_time = 25.0
 next_course = "uid://dovybpy6nl3r4"
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_faynr")]
@@ -30,11 +43,16 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=1642014191]
 position = Vector2(-13, 646)
 build_mode = 1
-polygon = PackedVector2Array(9, -159, 0, -646, 1613, -648, 1615, 264, 1677, 352, 1540, 486, 1438, 386, 600, 395)
+polygon = PackedVector2Array(9, -159, 0, -646, 1613, -648, 1615, 264, 1677, 352, 1540, 486, 1438, 386, 1214, 389, 1208, 227, 1172, 226, 1170, 388, 600, 395)
 
 [node name="Line2D" type="Line2D" parent="Walls" unique_id=1032504609]
+z_index = 1
 position = Vector2(-6, 578)
-points = PackedVector2Array(1430, 458, 597, 460, 5, -100, -2, -581, 1605, -585, 1605, 324)
+points = PackedVector2Array(1430, 458, 1204, 454, 1199, 294, 1165, 296, 1166, 454, 597, 460, 5, -100, -2, -581, 1605, -585, 1605, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1231151601]
+position = Vector2(1178, 955)
+shape = SubResource("RectangleShape2D_tt2tb")
 
 [node name="Ices" type="Node" parent="." unique_id=1779763593]
 
@@ -42,54 +60,20 @@ points = PackedVector2Array(1430, 458, 597, 460, 5, -100, -2, -581, 1605, -585, 
 position = Vector2(3.0000038, 8.000003)
 scale = Vector2(11.5, 11.5)
 
-[node name="Ice2" parent="Ices" unique_id=1991518836 instance=ExtResource("6_lsufr")]
-position = Vector2(577, 644)
-rotation = 0.7853982
+[node name="RealIce" parent="Ices" unique_id=1991518836 instance=ExtResource("6_lsufr")]
+position = Vector2(950, 758)
 scale = Vector2(8.5, 8.5)
 
-[node name="Ice3" parent="Ices" unique_id=2004248410 instance=ExtResource("6_lsufr")]
-position = Vector2(793, 771)
-scale = Vector2(8, 8)
+[node name="CollisionShape2D" parent="Ices/RealIce/Area2D" parent_id_path=PackedInt32Array(1991518836, 50970149) index="1" unique_id=1040522665]
+position = Vector2(6.764694, 9.764709)
+shape = SubResource("RectangleShape2D_7ax6e")
 
-[node name="Ice4" parent="Ices" unique_id=2011535478 instance=ExtResource("6_lsufr")]
-position = Vector2(1137, 771)
-scale = Vector2(8, 8)
-
-[node name="Ice5" parent="Ices" unique_id=483144365 instance=ExtResource("6_lsufr")]
-position = Vector2(1331, 630)
-scale = Vector2(8, 8)
-
-[node name="Ice6" parent="Ices" unique_id=1752919183 instance=ExtResource("6_lsufr")]
-position = Vector2(857.00006, 654.99994)
-rotation = 0.7853982
-scale = Vector2(8.5, 8.5)
-
-[node name="Ice10" parent="Ices" unique_id=1584944718 instance=ExtResource("6_lsufr")]
-position = Vector2(815.00006, 649.00006)
-rotation = 0.7853982
-scale = Vector2(8.5, 8.5)
-
-[node name="Ice7" parent="Ices" unique_id=1280862739 instance=ExtResource("6_lsufr")]
-position = Vector2(1241, 662.00006)
-rotation = 0.7853982
-scale = Vector2(8.5, 8.5)
-
-[node name="Ice8" parent="Ices" unique_id=610498300 instance=ExtResource("6_lsufr")]
-position = Vector2(971.00006, 845)
-scale = Vector2(6, 6)
-
-[node name="Ice12" parent="Ices" unique_id=1360224274 instance=ExtResource("6_lsufr")]
-position = Vector2(1230, 668.00006)
-scale = Vector2(6, 6)
-
-[node name="Ice9" parent="Ices" unique_id=665588435 instance=ExtResource("6_lsufr")]
-position = Vector2(603, 651)
-scale = Vector2(8, 8)
-
-[node name="Ice11" parent="Ices" unique_id=1379217136 instance=ExtResource("6_lsufr")]
-position = Vector2(1410, 679)
-rotation = 0.7853982
-scale = Vector2(8, 8)
+[node name="FakeIce" type="Panel" parent="Ices" unique_id=611815658]
+offset_left = 424.0
+offset_top = 651.0
+offset_right = 1598.0
+offset_bottom = 1032.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_03dd7")
 
 [node name="Pits" type="Node" parent="." unique_id=811412041]
 
@@ -133,3 +117,5 @@ rotation = 0.7853982
 [node name="LowWall4" parent="Low Walls" unique_id=389679887 instance=ExtResource("7_7ax6e")]
 position = Vector2(516, 651)
 rotation = 0.7853982
+
+[editable path="Ices/RealIce"]
