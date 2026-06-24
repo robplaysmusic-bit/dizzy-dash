@@ -7,15 +7,23 @@ const WALK_DEACCEL : float = 1000.0
 # not convinced this should actually be a thing
 const MAX_RUN_SPEED : float = 400.0
 const RUN_ACCEL : float = 500.0
+
 const JUMP_TIME : float = 0.5
 const RESPAWN_TIME : float = 1.0
 const RESPAWN_DISTANCE : float = 100.0
+
+const ICY_DAMP : float = 0.5
+const NORMAL_DAMP : float = 5.0
+const SAND_DAMP : float = 10.0
 
 var active := true
 var dying : bool = false
 var dead : bool = false
 var death_position : Vector2
 var death_velocity : Vector2
+
+var on_ice : bool = false
+var previously_on_ice : bool = false
 
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -49,12 +57,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	elif dizzy_input.x > 0:
 		if velocity.x < MAX_WALK_SPEED:
 			velocity.x += WALK_ACCEL * step
-	else: # slow to a stop
-		var abs_x_velocity : float = absf(velocity.x)
-		abs_x_velocity -= WALK_DEACCEL * step
-		if abs_x_velocity < 0:
-			abs_x_velocity = 0
-		velocity.x = signf(velocity.x) * abs_x_velocity
 	
 	# up / down movement
 	if dizzy_input.y < 0:
@@ -63,15 +65,11 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	elif dizzy_input.y > 0:
 		if velocity.y < MAX_WALK_SPEED: 
 			velocity.y += WALK_ACCEL * step
-	else: # slow to a stop
-		var abs_y_velocity : float = absf(velocity.y)
-		abs_y_velocity -= WALK_DEACCEL * step
-		if abs_y_velocity < 0:
-			abs_y_velocity = 0
-		velocity.y = signf(velocity.y) * abs_y_velocity
 	
 	# TBD how we will find floor contact on z axis and apply physics for things
 	# like ice / sand / etc.
+	
+	_handle_icy_terrain()
 
 	state.set_linear_velocity(velocity)
 
@@ -86,6 +84,22 @@ func die() -> void:
 	death_tween.tween_property(sprite, "scale", Vector2(0, 0), RESPAWN_TIME/2)
 	# TODO: perhaps some poof particle effect on await tween finished
 	pass
+
+func enter_ice() -> void:
+	on_ice = true
+
+func exit_ice() -> void:
+	on_ice = false
+
+func _handle_icy_terrain() -> void:
+	if on_ice != previously_on_ice:
+		if on_ice:
+			linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
+			linear_damp = ICY_DAMP
+		else:
+			linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
+			linear_damp = NORMAL_DAMP
+	previously_on_ice = on_ice
 
 func _handle_jump() -> void:
 	# bit 1 is for jump collisions

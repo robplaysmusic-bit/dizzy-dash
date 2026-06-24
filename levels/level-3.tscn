@@ -4,51 +4,132 @@
 [ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_faynr"]
 [ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="3_lsufr"]
 [ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_7ax6e"]
+[ext_resource type="PackedScene" uid="uid://dvbgxwmrmnn7k" path="res://levels/components/pit.tscn" id="5_faynr"]
+[ext_resource type="PackedScene" uid="uid://c07q1p1go1g0" path="res://levels/components/ice.tscn" id="6_lsufr"]
+[ext_resource type="PackedScene" uid="uid://1pge4wljhsbh" path="res://levels/components/low_wall.tscn" id="7_7ax6e"]
 
-[node name="Level1" type="Node2D" unique_id=938879597]
+[node name="Level3" type="Node2D" unique_id=938879597]
 script = ExtResource("1_im8po")
 next_course = "uid://dovybpy6nl3r4"
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_faynr")]
-position = Vector2(20, 624)
+position = Vector2(19, 23)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
 
 [node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("3_lsufr")]
 
 [node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("4_7ax6e")]
-position = Vector2(822, 590)
+position = Vector2(1507, 963.00006)
+rotation = -0.7853982
 
-[node name="Line2D" type="Line2D" parent="." unique_id=1133183081]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1647246742]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=1642014191]
+position = Vector2(-13, 646)
+build_mode = 1
+polygon = PackedVector2Array(9, -159, 0, -646, 1613, -648, 1615, 264, 1677, 352, 1540, 486, 1438, 386, 600, 395)
+
+[node name="Pits" type="Node" parent="Walls/CollisionPolygon2D" unique_id=811412041]
+
+[node name="Pit3" parent="Walls/CollisionPolygon2D/Pits" unique_id=1115926779 instance=ExtResource("5_faynr")]
+z_index = 1
+position = Vector2(373, 170)
+rotation = -0.7853982
+scale = Vector2(30, 30)
+
+[node name="Pit2" parent="Walls/CollisionPolygon2D/Pits" unique_id=541420944 instance=ExtResource("5_faynr")]
+position = Vector2(367, 7.0000153)
+scale = Vector2(5, 5)
+
+[node name="Pit6" parent="Walls/CollisionPolygon2D/Pits" unique_id=1458122870 instance=ExtResource("5_faynr")]
+position = Vector2(693, 914)
+rotation = 0.7853982
+scale = Vector2(5, 5)
+
+[node name="Pit4" parent="Walls/CollisionPolygon2D/Pits" unique_id=1731609005 instance=ExtResource("5_faynr")]
+position = Vector2(1113, 187)
+scale = Vector2(15, 15)
+
+[node name="Pit5" parent="Walls/CollisionPolygon2D/Pits" unique_id=217529887 instance=ExtResource("5_faynr")]
+position = Vector2(536.00006, 330.00003)
+scale = Vector2(10, 10)
+
+[node name="Line2D" type="Line2D" parent="Walls" unique_id=1032504609]
 position = Vector2(-6, 578)
-points = PackedVector2Array(175, 66, 4, 67, 70, -280, 105, -487, 496, -567, 789, -588, 940, -491, 953, -352, 957.9424, -264.6845, 937, 12)
+points = PackedVector2Array(1430, 458, 597, 460, 5, -100, -2, -581, 1605, -585, 1605, 324)
 
-[node name="Line2D2" type="Line2D" parent="." unique_id=941638691]
-position = Vector2(-12, 1156)
-points = PackedVector2Array(182, -514, 222, -677, 342, -878, 518, -939, 688, -861, 687, -712, 727, -529)
+[node name="Ices" type="Node" parent="." unique_id=1779763593]
 
-[node name="Panel" type="Panel" parent="." unique_id=1059654274]
-offset_left = 65.0
-offset_top = 271.0
-offset_right = 107.2631
-offset_bottom = 499.91553
-rotation = -1.0227629
+[node name="Ice" parent="Ices" unique_id=138946931 instance=ExtResource("6_lsufr")]
+position = Vector2(3.0000038, 8.000003)
+scale = Vector2(11.5, 11.5)
 
-[node name="Label" type="Label" parent="Panel" unique_id=1628487241]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "low
-wall"
+[node name="Ice2" parent="Ices" unique_id=1991518836 instance=ExtResource("6_lsufr")]
+position = Vector2(577, 644)
+rotation = 0.7853982
+scale = Vector2(8.5, 8.5)
 
-[node name="Panel2" type="Panel" parent="." unique_id=1763670823]
-offset_left = 683.0
-offset_top = 309.0
-offset_right = 942.0
-offset_bottom = 344.0
+[node name="Ice3" parent="Ices" unique_id=2004248410 instance=ExtResource("6_lsufr")]
+position = Vector2(793, 771)
+scale = Vector2(8, 8)
 
-[node name="Label" type="Label" parent="Panel2" unique_id=621801397]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "pit"
+[node name="Ice4" parent="Ices" unique_id=2011535478 instance=ExtResource("6_lsufr")]
+position = Vector2(1137, 771)
+scale = Vector2(8, 8)
+
+[node name="Ice5" parent="Ices" unique_id=483144365 instance=ExtResource("6_lsufr")]
+position = Vector2(1331, 630)
+scale = Vector2(8, 8)
+
+[node name="Ice6" parent="Ices" unique_id=1752919183 instance=ExtResource("6_lsufr")]
+position = Vector2(857.00006, 654.99994)
+rotation = 0.7853982
+scale = Vector2(8.5, 8.5)
+
+[node name="Ice10" parent="Ices" unique_id=1584944718 instance=ExtResource("6_lsufr")]
+position = Vector2(815.00006, 649.00006)
+rotation = 0.7853982
+scale = Vector2(8.5, 8.5)
+
+[node name="Ice7" parent="Ices" unique_id=1280862739 instance=ExtResource("6_lsufr")]
+position = Vector2(1241, 662.00006)
+rotation = 0.7853982
+scale = Vector2(8.5, 8.5)
+
+[node name="Ice8" parent="Ices" unique_id=610498300 instance=ExtResource("6_lsufr")]
+position = Vector2(971.00006, 845)
+scale = Vector2(6, 6)
+
+[node name="Ice12" parent="Ices" unique_id=1360224274 instance=ExtResource("6_lsufr")]
+position = Vector2(1230, 668.00006)
+scale = Vector2(6, 6)
+
+[node name="Ice9" parent="Ices" unique_id=665588435 instance=ExtResource("6_lsufr")]
+position = Vector2(603, 651)
+scale = Vector2(8, 8)
+
+[node name="Ice11" parent="Ices" unique_id=1379217136 instance=ExtResource("6_lsufr")]
+position = Vector2(1410, 679)
+rotation = 0.7853982
+scale = Vector2(8, 8)
+
+[node name="Low Walls" type="Node" parent="." unique_id=1765611899]
+
+[node name="LowWall" parent="Low Walls" unique_id=2128481197 instance=ExtResource("7_7ax6e")]
+position = Vector2(470, 699)
+rotation = 0.7853982
+
+[node name="LowWall2" parent="Low Walls" unique_id=260182701 instance=ExtResource("7_7ax6e")]
+position = Vector2(492.00006, 675.00006)
+rotation = 0.7853982
+
+[node name="LowWall3" parent="Low Walls" unique_id=672017171 instance=ExtResource("7_7ax6e")]
+position = Vector2(538, 629)
+rotation = 0.7853982
+
+[node name="LowWall4" parent="Low Walls" unique_id=389679887 instance=ExtResource("7_7ax6e")]
+position = Vector2(516, 651)
+rotation = 0.7853982
