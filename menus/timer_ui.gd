@@ -38,6 +38,7 @@ func initialize_goal_times(plat : float, gold : float, silver : float, bronze : 
 	silver_time.text = DizzyManager.format_time(silver)
 	bronze_time.text = DizzyManager.format_time(bronze)
 
-func halt_timer():
+func halt_timer() -> float:
 	stopped = true
 	# TODO: Color current time based on medals. Some confetti or something.
+	return (Time.get_ticks_msec() - start_time_msec) * time_multiplier / 1000.0

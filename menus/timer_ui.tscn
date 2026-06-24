@@ -35,14 +35,14 @@ horizontal_alignment = 2
 
 [node name="PlatinumTime" type="Label" parent="MarginContainer/VBoxContainer" unique_id=924877319]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.4421315, 0.70167494, 0.8918543, 0.9882353)
+theme_override_colors/font_color = Color(0.44313726, 0.7019608, 0.8901961, 0.9882353)
 theme_override_font_sizes/font_size = 16
 text = "00:15.00"
 horizontal_alignment = 2
 
 [node name="GoldTime" type="Label" parent="MarginContainer/VBoxContainer" unique_id=694413446]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9995473, 0.8750357, 0.34664792, 1)
+theme_override_colors/font_color = Color(1, 0.8745098, 0.34509805, 1)
 theme_override_font_sizes/font_size = 16
 text = "00:20.00"
 horizontal_alignment = 2
@@ -56,7 +56,7 @@ horizontal_alignment = 2
 
 [node name="BronzeTime" type="Label" parent="MarginContainer/VBoxContainer" unique_id=461037683]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7672467, 0.4495191, 0.030679695, 1)
+theme_override_colors/font_color = Color(0.76862746, 0.4509804, 0.03137255, 1)
 theme_override_font_sizes/font_size = 16
 text = "00:32.00"
 horizontal_alignment = 2

@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://ofg720on0bqa" path="res://menus/result_ui.gd" id="1_77ax5"]
 [ext_resource type="PackedScene" uid="uid://o52rpviwe7rp" path="res://menus/result_row.tscn" id="2_nmg3m"]
 
-[node name="ResultUI" type="VBoxContainer" unique_id=873171624]
+[node name="ResultUI" type="Control" unique_id=637257714]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,20 +12,79 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_77ax5")
 
-[node name="ResultRow" parent="." unique_id=1031830375 instance=ExtResource("2_nmg3m")]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=483779966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.43529412)
+
+[node name="M" type="MarginContainer" parent="." unique_id=920012976]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M" unique_id=556230242]
 layout_mode = 2
 
-[node name="ResultRow2" parent="." unique_id=1706523300 instance=ExtResource("2_nmg3m")]
+[node name="Label" type="Label" parent="M/V" unique_id=1835529485]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Results"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="M" type="MarginContainer" parent="M/V" unique_id=601336985]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M/V/M" unique_id=1396281897]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResultRow" parent="M/V/M/V" unique_id=1031830375 instance=ExtResource("2_nmg3m")]
 layout_mode = 2
 
-[node name="ResultRow3" parent="." unique_id=622882069 instance=ExtResource("2_nmg3m")]
+[node name="ResultRow2" parent="M/V/M/V" unique_id=1706523300 instance=ExtResource("2_nmg3m")]
 layout_mode = 2
 
-[node name="ResultRow4" parent="." unique_id=543815126 instance=ExtResource("2_nmg3m")]
+[node name="ResultRow3" parent="M/V/M/V" unique_id=622882069 instance=ExtResource("2_nmg3m")]
 layout_mode = 2
 
-[node name="ResultRow5" parent="." unique_id=457100944 instance=ExtResource("2_nmg3m")]
+[node name="ResultRow4" parent="M/V/M/V" unique_id=543815126 instance=ExtResource("2_nmg3m")]
 layout_mode = 2
 
-[node name="ResultRow6" parent="." unique_id=1555637630 instance=ExtResource("2_nmg3m")]
+[node name="ResultRow5" parent="M/V/M/V" unique_id=457100944 instance=ExtResource("2_nmg3m")]
 layout_mode = 2
+
+[node name="ResultRow6" parent="M/V/M/V" unique_id=1555637630 instance=ExtResource("2_nmg3m")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M/V" unique_id=1051422997]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="M/V/HBoxContainer" unique_id=9292614]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Restart (B/Backspace)"
+
+[node name="Label2" type="Label" parent="M/V/HBoxContainer" unique_id=915444558]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "(A/Space) Next Level"
+horizontal_alignment = 2
