@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqn7et530aaym"]
+
+[ext_resource type="AudioStream" uid="uid://da3pciw447lq0" path="res://assets/music/spinning.wav" id="1_w801h"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=135415948]
+stream = ExtResource("1_w801h")
