@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://1pge4wljhsbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt2tb"]
+size = Vector2(32, 32)
+
+[node name="LowWall" type="Node2D" unique_id=2128481197]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1537440258]
+
+[node name="Panel" type="Panel" parent="StaticBody2D" unique_id=594719786]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Label" type="Label" parent="StaticBody2D/Panel" unique_id=364983816]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 8
+text = "low 
+wall"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=6101648]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_tt2tb")

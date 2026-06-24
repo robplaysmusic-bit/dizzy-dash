@@ -56,15 +56,26 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# TODO: apply z-axis "gravity"
 	# TBD how we will find floor contact on z axis and apply physics for things
 	# like ice / sand / etc.
-	
 
 	state.set_linear_velocity(velocity)
 
+func is_jumping() -> bool:
+	return !jump_timer.is_stopped()
+
 func _handle_jump() -> void:
+	# bit 1 is for jump collisions
+	collision_layer = 0b10 
+	collision_mask = 0b10
+	jump_timer.start(JUMP_TIME)
+	
 	var jump_tween : Tween = get_tree().create_tween()
 	jump_tween.tween_property(sprite, "scale", Vector2(1.5, 1.5), JUMP_TIME/2)
 	await jump_tween.finished
 	var fall_tween : Tween = get_tree().create_tween()
 	fall_tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), JUMP_TIME/2)
 	
-	#TODO: send some signal, or change some property that let's us pass over pits and low walls
+
+func _on_jump_timer_timeout() -> void:
+	# bit 0 is for grounded collisions
+	collision_layer = 0b1
+	collision_mask = 0b1

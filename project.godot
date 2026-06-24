@@ -78,6 +78,11 @@ jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Grounded Player"
+2d_physics/layer_2="Jumping Player"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
