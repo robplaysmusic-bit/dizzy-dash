@@ -10,6 +10,7 @@ const FUDGE: float = 0.01
 @onready var time_remaining: Label = $CanvasLayer/MarginContainer/TimeRemaining
 @onready var spin_time: Timer = $SpinTime
 @onready var warning_timer: Timer = $WarningTimer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 ## how long you can wait without losing your current spin, a lower value means you have to spin faster for it to register
 @export var pause_time_msec: int
@@ -35,14 +36,18 @@ var last_progress_msec: int = 0
 # set when the game is over - tells us to stop counting spins
 var disabled : bool = false
 
+var lead_in_counts : int = 0
+
 func _ready() -> void:
+	audio_stream_player.play()
 	DizzyManager.set_dizziness(0)
 	_update_timer_label()
 	total_game_time_msec = int(mini_game_time * 1000)
 	mini_game_start_msec = Time.get_ticks_msec()
-	spin_time.start(mini_game_time)
-	warning_timer.start(warning_time)
-
+	
+	# don't start counting spins until the lead in time
+	disabled = true
+	
 func _process(_delta: float) -> void:
 	if disabled : return
 	
@@ -100,6 +105,10 @@ func angle_in_range(angle: float, start: float, end: float) -> bool:
 		while angle > start:
 			angle -= PI_2
 		return angle < start && angle >= end - FUDGE
+
+func _start_spin_game() -> void:
+	spin_time.start(mini_game_time)
+	warning_timer.start(warning_time)
 
 func _update_timer_label() -> void:
 	var seconds_remaining = int(mini_game_time)

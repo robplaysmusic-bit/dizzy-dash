@@ -21,7 +21,6 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
-				"43a6856e-5f3e-4895-ad4a-8acbb917183e",
 				"be93adba-5249-4fd1-bc52-eb7e9748845b",
 				"52765537-9e77-49cb-9964-a9907a9dcf54",
 				"1b67d14a-4ebd-4e61-832f-aab137b16e14",
@@ -32,8 +31,7 @@
 			"uuid": "daccdce7-7b64-4350-9d03-c951e7bbab2c",
 			"title": "Doing",
 			"tasks": [
-				"891a0e66-84a8-43c2-a705-9999e79d6f17",
-				"da45cc08-822d-4bef-b47e-5f2e1e0e5a82",
+				"43a6856e-5f3e-4895-ad4a-8acbb917183e",
 				"cdabe3fa-1cf0-4773-acd9-d50048bb5dee"
 			]
 		},
@@ -41,6 +39,8 @@
 			"uuid": "4b0366d0-12f4-4b8d-9f74-47efefb0db8f",
 			"title": "Done",
 			"tasks": [
+				"891a0e66-84a8-43c2-a705-9999e79d6f17",
+				"da45cc08-822d-4bef-b47e-5f2e1e0e5a82",
 				"97d21b2c-d3a9-4080-92df-685b35c1cc8a",
 				"9505bf9e-ff09-46ef-b940-d2ada53ebba9",
 				"f3a1b2f0-fbb3-4750-9781-dc2b2b1e902e",
@@ -184,7 +184,7 @@
 		},
 		{
 			"uuid": "cdabe3fa-1cf0-4773-acd9-d50048bb5dee",
-			"title": "sand terrain",
+			"title": "sand terrain + sand course",
 			"description": "",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
