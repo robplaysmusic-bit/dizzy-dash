@@ -19,6 +19,7 @@ var death_velocity : Vector2
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var respawn_timer: Timer = $RespawnTimer
+var active := true
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if dying or dead: 
@@ -32,8 +33,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var velocity := state.get_linear_velocity()
 	var step := state.get_step()
 	
+	var raw_input := Vector2.ZERO
 	# read player inputs and apply dizziness
-	var raw_input = Input.get_vector("left", "right", "up", "down")
+	if active:
+		raw_input = Input.get_vector("left", "right", "up", "down")
 	var dizzy_input = DizzyManager.apply_dizziness(raw_input)
 
 	if Input.is_action_just_pressed("jump") and jump_timer.is_stopped():
