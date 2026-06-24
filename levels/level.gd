@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 	timer_ui.initialize_goal_times(platinum_time, gold_time, silver_time, bronze_time)
 	if !player.active:
 		if Input.is_action_pressed("jump"):
+			DizzyManager.previous_best_time = INF
 			LevelLoader.load_spin_game(next_course)
 			queue_free()
 		elif Input.is_action_pressed("back"):
@@ -31,5 +32,6 @@ func _process(_delta: float) -> void:
 func _on_finish_line_crossed() -> void:
 	player.active = false
 	var result := timer_ui.halt_timer()
-	result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, 20.0)
+	var previous_best: float = DizzyManager.previous_best(result)
+	result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, previous_best)
 	result_ui.visible = true
