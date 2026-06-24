@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 DizzyManager="*uid://bpyaw84lobups"
 LevelLoader="*uid://bg3q2q8lsl4pb"
-MusicPlayer="*uid://dqn7et530aaym"
+SpinMusic="*uid://dqn7et530aaym"
 
 [debug]
 

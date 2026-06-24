@@ -43,7 +43,7 @@ var disabled : bool = false
 var lead_in_counts : int = 0
 
 func _ready() -> void:
-	MusicPlayer.play()
+	SpinMusic.play()
 	DizzyManager.set_dizziness(0)
 	_update_timer_label()
 	
