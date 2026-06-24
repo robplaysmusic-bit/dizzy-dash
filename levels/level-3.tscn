@@ -32,31 +32,6 @@ position = Vector2(-13, 646)
 build_mode = 1
 polygon = PackedVector2Array(9, -159, 0, -646, 1613, -648, 1615, 264, 1677, 352, 1540, 486, 1438, 386, 600, 395)
 
-[node name="Pits" type="Node" parent="Walls/CollisionPolygon2D" unique_id=811412041]
-
-[node name="Pit3" parent="Walls/CollisionPolygon2D/Pits" unique_id=1115926779 instance=ExtResource("5_faynr")]
-z_index = 1
-position = Vector2(373, 170)
-rotation = -0.7853982
-scale = Vector2(30, 30)
-
-[node name="Pit2" parent="Walls/CollisionPolygon2D/Pits" unique_id=541420944 instance=ExtResource("5_faynr")]
-position = Vector2(367, 7.0000153)
-scale = Vector2(5, 5)
-
-[node name="Pit6" parent="Walls/CollisionPolygon2D/Pits" unique_id=1458122870 instance=ExtResource("5_faynr")]
-position = Vector2(693, 914)
-rotation = 0.7853982
-scale = Vector2(5, 5)
-
-[node name="Pit4" parent="Walls/CollisionPolygon2D/Pits" unique_id=1731609005 instance=ExtResource("5_faynr")]
-position = Vector2(1113, 187)
-scale = Vector2(15, 15)
-
-[node name="Pit5" parent="Walls/CollisionPolygon2D/Pits" unique_id=217529887 instance=ExtResource("5_faynr")]
-position = Vector2(536.00006, 330.00003)
-scale = Vector2(10, 10)
-
 [node name="Line2D" type="Line2D" parent="Walls" unique_id=1032504609]
 position = Vector2(-6, 578)
 points = PackedVector2Array(1430, 458, 597, 460, 5, -100, -2, -581, 1605, -585, 1605, 324)
@@ -115,6 +90,31 @@ scale = Vector2(8, 8)
 position = Vector2(1410, 679)
 rotation = 0.7853982
 scale = Vector2(8, 8)
+
+[node name="Pits" type="Node" parent="." unique_id=811412041]
+
+[node name="Pit3" parent="Pits" unique_id=1115926779 instance=ExtResource("5_faynr")]
+z_index = 1
+position = Vector2(373, 170)
+rotation = -0.7853982
+scale = Vector2(30, 30)
+
+[node name="Pit2" parent="Pits" unique_id=541420944 instance=ExtResource("5_faynr")]
+position = Vector2(367, 7.0000153)
+scale = Vector2(5, 5)
+
+[node name="Pit6" parent="Pits" unique_id=1458122870 instance=ExtResource("5_faynr")]
+position = Vector2(693, 914)
+rotation = 0.7853982
+scale = Vector2(5, 5)
+
+[node name="Pit4" parent="Pits" unique_id=1731609005 instance=ExtResource("5_faynr")]
+position = Vector2(1113, 187)
+scale = Vector2(15, 15)
+
+[node name="Pit5" parent="Pits" unique_id=217529887 instance=ExtResource("5_faynr")]
+position = Vector2(536.00006, 330.00003)
+scale = Vector2(10, 10)
 
 [node name="Low Walls" type="Node" parent="." unique_id=1765611899]
 
