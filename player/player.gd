@@ -12,7 +12,7 @@ const JUMP_TIME : float = 0.5
 const RESPAWN_TIME : float = 1.0
 const RESPAWN_DISTANCE : float = 100.0
 
-const ICY_DAMP : float = 0.25
+const ICY_DAMP : float = 0.5
 const NORMAL_DAMP : float = 5.0
 const SAND_DAMP : float = 10.0
 
