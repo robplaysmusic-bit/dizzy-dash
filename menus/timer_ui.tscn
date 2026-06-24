@@ -29,13 +29,6 @@ theme_override_font_sizes/font_size = 32
 text = "00:05.22"
 horizontal_alignment = 2
 
-[node name="PersonalBest" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1622982291]
-layout_mode = 2
-theme_override_colors/font_color = Color(3.513545e-06, 0.7512896, 0.24062243, 1)
-theme_override_font_sizes/font_size = 24
-text = "00:05.22"
-horizontal_alignment = 2
-
 [node name="PlatinumTime" type="Label" parent="MarginContainer/VBoxContainer" unique_id=924877319]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.44313726, 0.7019608, 0.8901961, 0.9882353)

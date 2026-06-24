@@ -9,6 +9,10 @@
 
 [node name="Level2" type="Node2D" unique_id=938879597]
 script = ExtResource("1_7068u")
+platinum_time = 4.0
+gold_time = 6.0
+silver_time = 10.0
+bronze_time = 20.0
 next_course = "uid://4nwdhi7v7ey4"
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_mobua")]
