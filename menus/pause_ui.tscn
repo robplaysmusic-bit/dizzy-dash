@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bxrgbm7lwx7kr"]
+
+[node name="PauseUI" type="Control" unique_id=694073540]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2034631211]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=897815613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=70170179]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2079594958]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Instructions" type="Label" parent="MarginContainer/VBoxContainer" unique_id=397427961]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+text = "Get to the finish line!
+Avoid obstacles!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2133276032]
+layout_mode = 2
+
+[node name="Controls" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=654880532]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Restart (B/Backspace)"
+vertical_alignment = 1
+
+[node name="Controls2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=112526605]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Unpause (Start/Esc)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=684549837]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Full restart (???)"
+horizontal_alignment = 2
+vertical_alignment = 1

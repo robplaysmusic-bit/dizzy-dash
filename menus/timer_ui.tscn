@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://ckku2j5p3rmu2" path="res://menus/timer_ui.gd" id="1_xh811"]
 [ext_resource type="PackedScene" uid="uid://ch1ec0f7hh6as" path="res://menus/dizziness_ui.tscn" id="2_d7r4t"]
 [ext_resource type="PackedScene" uid="uid://ciwrgipaomwj7" path="res://menus/result_ui.tscn" id="3_q3r1d"]
+[ext_resource type="PackedScene" uid="uid://bxrgbm7lwx7kr" path="res://menus/pause_ui.tscn" id="4_xw2qq"]
 
 [node name="TimerUI" type="CanvasLayer" unique_id=1665238461]
+process_mode = 1
 script = ExtResource("1_xh811")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=929891175]
@@ -73,3 +75,5 @@ grow_vertical = 1
 dizzy_scale = 35.0
 
 [node name="ResultUI" parent="." unique_id=637257714 instance=ExtResource("3_q3r1d")]
+
+[node name="PauseUI" parent="." unique_id=694073540 instance=ExtResource("4_xw2qq")]

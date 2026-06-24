@@ -13,20 +13,31 @@ class_name Level extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# never pause this node, since it manages pausing
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	timer_ui.pause_ui.visible = false
 	timer_ui.result_ui.visible = false
 	finish_line.crossed.connect(_on_finish_line_crossed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	timer_ui.initialize_goal_times(platinum_time, gold_time, silver_time, bronze_time)
-	if !player.active:
-		if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump"):
+		if timer_ui.result_ui.visible:
 			DizzyManager.previous_best_time = INF
 			LevelLoader.load_spin_game(next_course)
 			queue_free()
-		elif Input.is_action_pressed("back"):
+	elif Input.is_action_pressed("back"):
+		if timer_ui.result_ui.visible or timer_ui.pause_ui.visible:
+			get_tree().paused = false
 			LevelLoader.load_next_course()
 			queue_free()
+
+	if Input.is_action_just_pressed("menu"):
+		if !timer_ui.result_ui.visible:
+			var pause := !timer_ui.pause_ui.visible
+			timer_ui.set_pause(pause)
+			get_tree().paused = pause
 
 func _on_finish_line_crossed() -> void:
 	player.active = false
