@@ -15,6 +15,7 @@ var stopped : bool = false
 @onready var gold_time: Label = $MarginContainer/VBoxContainer/GoldTime
 @onready var silver_time: Label = $MarginContainer/VBoxContainer/SilverTime
 @onready var bronze_time: Label = $MarginContainer/VBoxContainer/BronzeTime
+@onready var result_ui: ResultUI = $ResultUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

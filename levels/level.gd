@@ -9,12 +9,11 @@ class_name Level extends Node2D
 @onready var player: Player = $Player
 @onready var timer_ui: TimerUI = $TimerUI
 @onready var finish_line: FinishLine = $FinishLine
-@onready var result_ui: ResultUI = $TimerUI/ResultUI
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	result_ui.visible = false
+	timer_ui.result_ui.visible = false
 	finish_line.crossed.connect(_on_finish_line_crossed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,5 +32,5 @@ func _on_finish_line_crossed() -> void:
 	player.active = false
 	var result := timer_ui.halt_timer()
 	var previous_best: float = DizzyManager.previous_best(result)
-	result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, previous_best)
-	result_ui.visible = true
+	timer_ui.result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, previous_best)
+	timer_ui.result_ui.visible = true

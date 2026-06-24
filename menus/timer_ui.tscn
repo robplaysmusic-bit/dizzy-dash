@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckku2j5p3rmu2" path="res://menus/timer_ui.gd" id="1_xh811"]
 [ext_resource type="PackedScene" uid="uid://ch1ec0f7hh6as" path="res://menus/dizziness_ui.tscn" id="2_d7r4t"]
+[ext_resource type="PackedScene" uid="uid://ciwrgipaomwj7" path="res://menus/result_ui.tscn" id="3_q3r1d"]
 
 [node name="TimerUI" type="CanvasLayer" unique_id=1665238461]
 script = ExtResource("1_xh811")
@@ -70,3 +71,5 @@ offset_bottom = 33.0
 grow_horizontal = 1
 grow_vertical = 1
 dizzy_scale = 35.0
+
+[node name="ResultUI" parent="." unique_id=637257714 instance=ExtResource("3_q3r1d")]
