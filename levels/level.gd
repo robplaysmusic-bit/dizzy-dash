@@ -18,15 +18,18 @@ func _ready() -> void:
 	finish_line.crossed.connect(_on_finish_line_crossed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	timer_ui.initialize_goal_times(platinum_time, gold_time, silver_time, bronze_time)
-
+	if !player.active:
+		if Input.is_action_pressed("jump"):
+			LevelLoader.load_spin_game(next_course)
+			queue_free()
+		elif Input.is_action_pressed("back"):
+			LevelLoader.load_next_course()
+			queue_free()
 
 func _on_finish_line_crossed() -> void:
-	# TODO: Results screen, actually have them confirm before starting the next level (or retrying this one)
 	player.active = false
 	var result := timer_ui.halt_timer()
 	result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, 20.0)
 	result_ui.visible = true
-	#LevelLoader.load_spin_game(next_course)
-	#queue_free()

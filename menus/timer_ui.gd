@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 	actual_seconds_elapsed = (Time.get_ticks_msec() - start_time_msec) / 1000.0
 	current_time.text = DizzyManager.format_time(actual_seconds_elapsed * time_multiplier)
 
-func initialize_goal_times(plat : float, gold : float, silver : float, bronze : float):
+func initialize_goal_times(plat : float, gold : float, silver : float, bronze : float) -> void:
 	platinum_time.text = DizzyManager.format_time(plat)
 	gold_time.text = DizzyManager.format_time(gold)
 	silver_time.text = DizzyManager.format_time(silver)

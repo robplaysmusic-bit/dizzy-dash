@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_ns7l7"]
 [ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="3_wo0s5"]
 [ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="4_l60ws"]
+[ext_resource type="PackedScene" uid="uid://ciwrgipaomwj7" path="res://menus/result_ui.tscn" id="5_bk5ri"]
 
 [node name="TestLevel" type="Node2D" unique_id=1600044845]
 script = ExtResource("1_uwesj")
@@ -26,3 +27,5 @@ text = "different refrence text"
 position = Vector2(280, -188)
 
 [node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("4_l60ws")]
+
+[node name="ResultUI" parent="TimerUI" unique_id=637257714 instance=ExtResource("5_bk5ri")]
