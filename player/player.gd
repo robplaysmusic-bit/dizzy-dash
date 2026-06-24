@@ -10,7 +10,7 @@ const RUN_ACCEL : float = 500.0
 
 const JUMP_TIME : float = 0.5
 const RESPAWN_TIME : float = 1.0
-const RESPAWN_DISTANCE : float = 150.0
+const RESPAWN_DISTANCE : float = 100.0
 
 const ICY_DAMP : float = 0.5
 const NORMAL_DAMP : float = 5.0
@@ -23,6 +23,7 @@ var death_position : Vector2
 var death_velocity : Vector2
 
 var on_ice : bool = false
+var previously_on_ice : bool = false
 
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -91,12 +92,14 @@ func exit_ice() -> void:
 	on_ice = false
 
 func _handle_icy_terrain() -> void:
-	if on_ice:
-		linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
-		linear_damp = ICY_DAMP
-	else:
-		linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
-		linear_damp = NORMAL_DAMP
+	if on_ice != previously_on_ice:
+		if on_ice:
+			linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
+			linear_damp = ICY_DAMP
+		else:
+			linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
+			linear_damp = NORMAL_DAMP
+	previously_on_ice = on_ice
 
 func _handle_jump() -> void:
 	# bit 1 is for jump collisions

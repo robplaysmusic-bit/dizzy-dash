@@ -4,9 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_faynr"]
 [ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="3_lsufr"]
 [ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_7ax6e"]
+[ext_resource type="Script" uid="uid://cgr7wlenab4do" path="res://levels/components/ice.gd" id="5_3rros"]
 [ext_resource type="PackedScene" uid="uid://dvbgxwmrmnn7k" path="res://levels/components/pit.tscn" id="5_faynr"]
 [ext_resource type="PackedScene" uid="uid://c07q1p1go1g0" path="res://levels/components/ice.tscn" id="6_lsufr"]
 [ext_resource type="PackedScene" uid="uid://1pge4wljhsbh" path="res://levels/components/low_wall.tscn" id="7_7ax6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rros"]
+size = Vector2(191.83334, 70.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt2tb"]
+bg_color = Color(0, 0.6, 0.6, 1)
 
 [node name="Level3" type="Node2D" unique_id=938879597]
 script = ExtResource("1_im8po")
@@ -46,62 +53,46 @@ points = PackedVector2Array(1430, 458, 1233, 454, 1226, 254, 1174, 258, 1176.929
 [node name="Ice" parent="Ices" unique_id=138946931 instance=ExtResource("6_lsufr")]
 position = Vector2(3.0000038, 8.000003)
 scale = Vector2(11.5, 11.5)
+script = null
 
-[node name="Ice2" parent="Ices" unique_id=1991518836 instance=ExtResource("6_lsufr")]
-position = Vector2(587, 652)
-rotation = 0.7853982
-scale = Vector2(8, 8)
-
-[node name="Ice3" parent="Ices" unique_id=2004248410 instance=ExtResource("6_lsufr")]
-position = Vector2(941.00006, 509.00006)
-rotation = 0.7853982
-scale = Vector2(8, 8)
-
-[node name="Ice8" parent="Ices" unique_id=610498300 instance=ExtResource("6_lsufr")]
+[node name="RealIce" parent="Ices" unique_id=610498300 instance=ExtResource("6_lsufr")]
 position = Vector2(969, 836.00006)
 scale = Vector2(6, 6)
+script = null
 
-[node name="Ice9" parent="Ices" unique_id=665588435 instance=ExtResource("6_lsufr")]
-position = Vector2(696, 389)
-rotation = 0.7853982
-scale = Vector2(8, 8)
+[node name="Area2D" parent="Ices/RealIce" index="0" unique_id=50970149]
+linear_damp_space_override = 3
+linear_damp = 0.5
+script = ExtResource("5_3rros")
 
-[node name="Ice11" parent="Ices" unique_id=1379217136 instance=ExtResource("6_lsufr")]
-position = Vector2(1410, 679)
-rotation = 0.7853982
-scale = Vector2(8, 8)
+[node name="Panel" parent="Ices/RealIce/Area2D" index="0" unique_id=1272400649]
+offset_left = -23.666666
+offset_top = 0.9999898
+offset_right = 8.333334
+offset_bottom = 32.99999
 
-[node name="Ice4" parent="Ices" unique_id=1030795033 instance=ExtResource("6_lsufr")]
-position = Vector2(1118.0001, 788.00006)
-rotation = 0.7853982
+[node name="Label" parent="Ices/RealIce/Area2D/Panel" index="0" unique_id=1522204698]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06741667
+anchor_top = 0.1820417
+anchor_right = 0.068
+anchor_bottom = 0.1820417
+offset_left = 0.009338379
+offset_top = 0.007989883
+offset_right = 29.490671
+offset_bottom = 24.50799
 
-[node name="Ice5" parent="Ices" unique_id=1546190521 instance=ExtResource("6_lsufr")]
-position = Vector2(1143.0001, 762)
-rotation = 0.7853982
+[node name="CollisionShape2D" parent="Ices/RealIce/Area2D" index="1" unique_id=1040522665]
+position = Vector2(8.416672, -0.9166565)
+shape = SubResource("RectangleShape2D_3rros")
 
-[node name="Ice6" parent="Ices" unique_id=1618063304 instance=ExtResource("6_lsufr")]
-position = Vector2(1168.0001, 785.00006)
-rotation = 0.7853982
-
-[node name="Ice7" parent="Ices" unique_id=1774305823 instance=ExtResource("6_lsufr")]
-position = Vector2(1168, 737)
-rotation = 0.7853982
-
-[node name="Ice10" parent="Ices" unique_id=1286376175 instance=ExtResource("6_lsufr")]
-position = Vector2(1192.0001, 712.0001)
-rotation = 0.7853982
-
-[node name="Ice12" parent="Ices" unique_id=449938989 instance=ExtResource("6_lsufr")]
-position = Vector2(1192, 760)
-rotation = 0.7853982
-
-[node name="Ice13" parent="Ices" unique_id=1783868023 instance=ExtResource("6_lsufr")]
-position = Vector2(1215, 737)
-rotation = 0.7853982
-
-[node name="Ice14" parent="Ices" unique_id=1362213054 instance=ExtResource("6_lsufr")]
-position = Vector2(1217.0001, 689.00006)
-rotation = 0.7853982
+[node name="FakeIce" type="Panel" parent="Ices" unique_id=290723785]
+offset_left = 445.0
+offset_top = 618.0
+offset_right = 1599.0
+offset_bottom = 1039.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tt2tb")
 
 [node name="Pits" type="Node" parent="." unique_id=811412041]
 
@@ -145,3 +136,5 @@ rotation = 0.7853982
 [node name="LowWall4" parent="Low Walls" unique_id=389679887 instance=ExtResource("7_7ax6e")]
 position = Vector2(516, 651)
 rotation = 0.7853982
+
+[editable path="Ices/RealIce"]
