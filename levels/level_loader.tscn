@@ -85,7 +85,7 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="LevelLoader" type="Node" unique_id=450007278]
 script = ExtResource("1_3hhvs")
-next_course = "uid://dovybpy6nl3r4"
+next_course = "uid://ch75j5f8xuxt8"
 
 [node name="SceneTransitionCanvasLayer" type="CanvasLayer" parent="." unique_id=1110105337]
 

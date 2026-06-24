@@ -41,6 +41,10 @@ project/assembly_name="dizzy-dash"
 
 enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
 
+[global_group]
+
+player="hack way for anyone to find the player"
+
 [input]
 
 up={
@@ -83,6 +87,11 @@ back={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Grounded Player"
+2d_physics/layer_2="Jumping Player"
 
 [physics]
 

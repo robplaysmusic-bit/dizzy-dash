@@ -5,8 +5,8 @@
 
 [node name="SpinMinigame" type="Node2D" unique_id=1488981358]
 script = ExtResource("1_mcqe1")
-mini_game_time = 10.0
-warning_time = 5.0
+mini_game_time = 5.0
+warning_time = 3.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1061008089]
 points = PackedVector2Array(0, 0, 200, 0)

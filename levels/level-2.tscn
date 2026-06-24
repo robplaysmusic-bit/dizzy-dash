@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dovybpy6nl3r4"]
+
+[ext_resource type="Script" uid="uid://dhdjbp8km7dxy" path="res://levels/level.gd" id="1_7068u"]
+[ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_mobua"]
+[ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="3_jmmie"]
+[ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_focia"]
+[ext_resource type="PackedScene" uid="uid://ciwrgipaomwj7" path="res://menus/result_ui.tscn" id="4_uluqv"]
+[ext_resource type="PackedScene" uid="uid://1pge4wljhsbh" path="res://levels/components/low_wall.tscn" id="5_mobua"]
+[ext_resource type="PackedScene" uid="uid://dvbgxwmrmnn7k" path="res://levels/components/pit.tscn" id="6_jmmie"]
+
+[node name="Level2" type="Node2D" unique_id=938879597]
+script = ExtResource("1_7068u")
+next_course = "uid://dovybpy6nl3r4"
+
+[node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_mobua")]
+position = Vector2(20, 624)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
+
+[node name="TimerUI" parent="." unique_id=1665238461 instance=ExtResource("3_jmmie")]
+
+[node name="ResultUI" parent="TimerUI" unique_id=637257714 instance=ExtResource("4_uluqv")]
+
+[node name="FinishLine" parent="." unique_id=1421284434 instance=ExtResource("4_focia")]
+position = Vector2(822, 590)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1398681258]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=2057672155]
+position = Vector2(-13, 646)
+build_mode = 1
+polygon = PackedVector2Array(0, -1, 109, -555, 501, -636, 794, -654, 943, -558, 963, -336, 943, -25, 730, -15, 686, -196, 689, -348, 510, -423, 344, -371, 222, -163, 181, 0, 6, -1, 0, 0, 0, 0, 0, 0)
+
+[node name="Line2D" type="Line2D" parent="Walls" unique_id=1133183081]
+position = Vector2(-6, 578)
+points = PackedVector2Array(175, 66, 4, 67, 70, -280, 105, -487, 496, -567, 789, -588, 940, -491, 953, -352, 957.9424, -264.6845, 934, 26)
+
+[node name="Line2D2" type="Line2D" parent="Walls" unique_id=941638691]
+position = Vector2(-12, 1156)
+points = PackedVector2Array(182, -514, 222, -677, 342, -878, 518, -939, 688, -861, 687, -712, 726, -553)
+
+[node name="Low Wall" type="Node" parent="." unique_id=598468639]
+
+[node name="LowWall" parent="Low Wall" unique_id=2128481197 instance=ExtResource("5_mobua")]
+position = Vector2(248.00002, 341)
+rotation = 0.57595867
+
+[node name="LowWall2" parent="Low Wall" unique_id=1854602677 instance=ExtResource("5_mobua")]
+position = Vector2(215, 320)
+rotation = 0.57595867
+
+[node name="LowWall3" parent="Low Wall" unique_id=547499862 instance=ExtResource("5_mobua")]
+position = Vector2(185, 301)
+rotation = 0.57595867
+
+[node name="LowWall4" parent="Low Wall" unique_id=445462226 instance=ExtResource("5_mobua")]
+position = Vector2(154.00002, 280)
+rotation = 0.57595867
+
+[node name="LowWall5" parent="Low Wall" unique_id=1050939543 instance=ExtResource("5_mobua")]
+position = Vector2(123, 259)
+rotation = 0.57595867
+
+[node name="LowWall6" parent="Low Wall" unique_id=521256487 instance=ExtResource("5_mobua")]
+position = Vector2(90.99999, 239)
+rotation = 0.55850536
+
+[node name="Pits" type="Node" parent="." unique_id=680930607]
+
+[node name="Pit" parent="Pits" unique_id=1115926779 instance=ExtResource("6_jmmie")]
+position = Vector2(785, 312)
+
+[node name="Pit2" parent="Pits" unique_id=1924283540 instance=ExtResource("6_jmmie")]
+position = Vector2(819, 313)
+
+[node name="Pit3" parent="Pits" unique_id=1316697349 instance=ExtResource("6_jmmie")]
+position = Vector2(849, 312)
+
+[node name="Pit4" parent="Pits" unique_id=1574391565 instance=ExtResource("6_jmmie")]
+position = Vector2(883, 312)
+
+[node name="Pit5" parent="Pits" unique_id=1928362302 instance=ExtResource("6_jmmie")]
+position = Vector2(752, 312)
+
+[node name="Pit6" parent="Pits" unique_id=24641678 instance=ExtResource("6_jmmie")]
+position = Vector2(718, 311)
+
+[node name="Pit7" parent="Pits" unique_id=1197602161 instance=ExtResource("6_jmmie")]
+position = Vector2(916, 312)
+
+[node name="Pit8" parent="Pits" unique_id=326374625 instance=ExtResource("6_jmmie")]
+position = Vector2(684, 311)

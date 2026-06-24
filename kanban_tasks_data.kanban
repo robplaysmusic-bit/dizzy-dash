@@ -9,6 +9,11 @@
 			"uuid": "22838bad-712d-4131-b57a-18ced9a6a508",
 			"title": "Bug",
 			"color": "c23f21"
+		},
+		{
+			"uuid": "7670262b-4486-4472-aef5-d91ab702bfce",
+			"title": "Polish / juice",
+			"color": "daf809"
 		}
 	],
 	"stages": [
@@ -16,26 +21,35 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
-				"3e998141-4593-44f3-8d6b-1a511afa60eb",
+				"f3a1b2f0-fbb3-4750-9781-dc2b2b1e902e",
+				"97d21b2c-d3a9-4080-92df-685b35c1cc8a",
+				"43a6856e-5f3e-4895-ad4a-8acbb917183e",
+				"be93adba-5249-4fd1-bc52-eb7e9748845b",
+				"9505bf9e-ff09-46ef-b940-d2ada53ebba9",
+				"52765537-9e77-49cb-9964-a9907a9dcf54",
 				"1b67d14a-4ebd-4e61-832f-aab137b16e14",
-				"215e60b5-3b95-4e76-9be9-c029de840502",
-				"2b1c2837-d394-46ac-9660-0f5ff83f640f"
+				"8e8698d8-bc51-4203-8b4d-1258823a5fec"
 			]
 		},
 		{
 			"uuid": "daccdce7-7b64-4350-9d03-c951e7bbab2c",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"891a0e66-84a8-43c2-a705-9999e79d6f17"
+			]
 		},
 		{
 			"uuid": "4b0366d0-12f4-4b8d-9f74-47efefb0db8f",
 			"title": "Done",
 			"tasks": [
+				"2394bda5-d305-499a-b6b7-5f7b0683da6b",
+				"3e998141-4593-44f3-8d6b-1a511afa60eb",
 				"58ef9e98-32a6-42de-b268-c3c36437922b",
 				"44aa7c26-27b9-4aca-8425-6ffe15ec858d",
 				"4f431c29-11b6-4f07-8686-e9fc4d613ca6",
 				"915fd93f-16de-4473-8a88-8fb071cd646d",
-				"df5adb9f-a55d-46e0-9baa-7d00a5ea260d"
+				"df5adb9f-a55d-46e0-9baa-7d00a5ea260d",
+				"2b1c2837-d394-46ac-9660-0f5ff83f640f"
 			]
 		}
 	],
@@ -71,20 +85,13 @@
 		{
 			"uuid": "3e998141-4593-44f3-8d6b-1a511afa60eb",
 			"title": "handle jumps",
-			"description": "",
+			"description": "low walls and pits",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
 		},
 		{
 			"uuid": "1b67d14a-4ebd-4e61-832f-aab137b16e14",
-			"title": "run button?",
-			"description": "",
-			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
-			"steps": []
-		},
-		{
-			"uuid": "215e60b5-3b95-4e76-9be9-c029de840502",
-			"title": "handle friction with ground on z axis",
+			"title": "run button",
 			"description": "",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
@@ -101,6 +108,69 @@
 			"title": "Sudden rotaiton changes for high dizziness",
 			"description": "This may actually be a feature... but\nFor high dizziness - rotation angle sometimes shifts suddenly instead of gradually (as we approach modulo boundaries)",
 			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
+			"steps": []
+		},
+		{
+			"uuid": "43a6856e-5f3e-4895-ad4a-8acbb917183e",
+			"title": "Pre-spin game countdown",
+			"description": "",
+			"category": "7670262b-4486-4472-aef5-d91ab702bfce",
+			"steps": []
+		},
+		{
+			"uuid": "be93adba-5249-4fd1-bc52-eb7e9748845b",
+			"title": "Pre-race countdown",
+			"description": "",
+			"category": "7670262b-4486-4472-aef5-d91ab702bfce",
+			"steps": []
+		},
+		{
+			"uuid": "f3a1b2f0-fbb3-4750-9781-dc2b2b1e902e",
+			"title": "Race result screen",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "9505bf9e-ff09-46ef-b940-d2ada53ebba9",
+			"title": "Pause screen (w/ retry from spin or from course)",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "891a0e66-84a8-43c2-a705-9999e79d6f17",
+			"title": "prelim course design",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "97d21b2c-d3a9-4080-92df-685b35c1cc8a",
+			"title": "Export web build",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "52765537-9e77-49cb-9964-a9907a9dcf54",
+			"title": "Start screen + tutorial screen pre first-spin",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "8e8698d8-bc51-4203-8b4d-1258823a5fec",
+			"title": "Web build",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "2394bda5-d305-499a-b6b7-5f7b0683da6b",
+			"title": "walls",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
 		}
 	],
