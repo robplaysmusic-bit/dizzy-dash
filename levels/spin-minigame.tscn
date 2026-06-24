@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ppsrh1hxl6r4" path="res://levels/spin_minigame.gd" id="1_mcqe1"]
 [ext_resource type="PackedScene" uid="uid://ch1ec0f7hh6as" path="res://menus/dizziness_ui.tscn" id="2_xfudv"]
+[ext_resource type="AudioStream" uid="uid://da3pciw447lq0" path="res://assets/music/spinning.wav" id="3_y7vqx"]
 
 [node name="SpinMinigame" type="Node2D" unique_id=1488981358]
 script = ExtResource("1_mcqe1")
@@ -40,12 +41,43 @@ offset_right = 120.0
 offset_bottom = 33.0
 grow_horizontal = 1
 grow_vertical = 1
-dizzy_scale = 35.0
 live = true
-tween_speed = 0.1
+
+[node name="LeadInPanel" type="Panel" parent="CanvasLayer" unique_id=698255539]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeadInLabel" type="Label" parent="CanvasLayer/LeadInPanel" unique_id=1241773967]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="WarningTimer" type="Timer" parent="." unique_id=360836240]
 one_shot = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1818920378]
+stream = ExtResource("3_y7vqx")
+
+[node name="LeadInTimer" type="Timer" parent="." unique_id=788697540]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="SpinTime" to="." method="_on_spin_time_timeout"]
 [connection signal="timeout" from="WarningTimer" to="." method="_on_warning_timer_timeout"]
+[connection signal="timeout" from="LeadInTimer" to="." method="_on_lead_in_timer_timeout"]

@@ -6,10 +6,15 @@ const PI_3_2: float = PI * 3 / 2
 const PI_2: float = PI * 2
 const FUDGE: float = 0.01
 
+const LEAD_IN_TIMER_PERIOD : float = 0.5
+
 @onready var line: Line2D = $Line2D
 @onready var time_remaining: Label = $CanvasLayer/MarginContainer/TimeRemaining
 @onready var spin_time: Timer = $SpinTime
 @onready var warning_timer: Timer = $WarningTimer
+@onready var lead_in_label : Label = $CanvasLayer/LeadInPanel/LeadInLabel
+@onready var lead_in_timer: Timer = $LeadInTimer
+@onready var lead_in_panel: Panel = $CanvasLayer/LeadInPanel
 
 ## how long you can wait without losing your current spin, a lower value means you have to spin faster for it to register
 @export var pause_time_msec: int
@@ -35,14 +40,16 @@ var last_progress_msec: int = 0
 # set when the game is over - tells us to stop counting spins
 var disabled : bool = false
 
+var lead_in_counts : int = 0
+
 func _ready() -> void:
+	SpinMusic.play()
 	DizzyManager.set_dizziness(0)
 	_update_timer_label()
-	total_game_time_msec = int(mini_game_time * 1000)
-	mini_game_start_msec = Time.get_ticks_msec()
-	spin_time.start(mini_game_time)
-	warning_timer.start(warning_time)
-
+	
+	# don't start counting spins until the lead in is done
+	disabled = true
+	
 func _process(_delta: float) -> void:
 	if disabled : return
 	
@@ -101,10 +108,18 @@ func angle_in_range(angle: float, start: float, end: float) -> bool:
 			angle -= PI_2
 		return angle < start && angle >= end - FUDGE
 
+func _start_spin_game() -> void:
+	disabled = false
+	total_game_time_msec = int(mini_game_time * 1000)
+	mini_game_start_msec = Time.get_ticks_msec()
+	spin_time.start(mini_game_time)
+	warning_timer.start(warning_time)
+
 func _update_timer_label() -> void:
 	var seconds_remaining = int(mini_game_time)
 	var ms_remaining = (mini_game_time - seconds_remaining) * 100
 	time_remaining.text = "%02d.%02d" % [seconds_remaining, ms_remaining]
+
 
 func _on_spin_time_timeout() -> void:
 	disabled = true
@@ -112,6 +127,7 @@ func _on_spin_time_timeout() -> void:
 	DizzyManager.set_dizziness(abs(spins))
 	LevelLoader.load_next_course()
 	queue_free()
+
 
 func _on_warning_timer_timeout() -> void:
 	var tween_color : Tween = get_tree().create_tween()
@@ -121,3 +137,15 @@ func _on_warning_timer_timeout() -> void:
 			Color.WHITE, Color.RED,
 			mini_game_time
 	)
+
+
+func _on_lead_in_timer_timeout() -> void:
+	if lead_in_counts < 4:
+		var text_value : String = str(3 - lead_in_counts)
+		if text_value == "0" : text_value = "SPIN!!!"
+		lead_in_label.text = text_value
+		lead_in_counts += 1
+		lead_in_timer.start(LEAD_IN_TIMER_PERIOD)
+	elif lead_in_counts == 4:
+		lead_in_panel.visible = false
+		_start_spin_game()
