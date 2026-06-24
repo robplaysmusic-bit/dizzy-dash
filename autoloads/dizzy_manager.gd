@@ -23,6 +23,8 @@ const _info : Dictionary[Dizzy, Array] = {
 	Dizzy.OH_NO :			[80,	100,	0.1]  # centered around 90
 }
 
+var previous_best_time: float = INF
+
 var _tier : Dizzy = Dizzy.NOT_DIZZY
 # Value determined by player in spin mini-game - no upper bound
 # basic tiers of player impact:
@@ -50,7 +52,7 @@ var rotation_increasing : bool = true
 @onready var rotation_change_timer: Timer = $RotationChangeTimer
 
 # Dizziness should be set before loading the next level
-func set_dizziness(value : int):
+func set_dizziness(value : int) -> void:
 	_dizziness = value
 	# if we were dizzier in a previous round than this one, we want to avoid
 	# unintentionally changing rotation.
@@ -90,3 +92,18 @@ func _on_rotation_change_timer_timeout() -> void:
 			_dizziness += 1
 		else:
 			_dizziness -= 1
+
+func format_time(time: float) -> String:
+	var seconds := int(time)
+	@warning_ignore("integer_division")
+	var minutes := seconds / 60
+	var subsec := int(fmod(time, 1.0) * 100.0)
+	
+	# Update the UI label text using zero padding
+	return "%02d:%02d.%02d" % [minutes, seconds % 60, subsec % 100]
+
+func previous_best(new_time: float) -> float:
+	var prev := previous_best_time
+	if new_time < previous_best_time:
+		previous_best_time = new_time
+	return prev

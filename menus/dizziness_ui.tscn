@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ch1ec0f7hh6as"]
+
+[ext_resource type="Script" uid="uid://b5h7gh5t54uv0" path="res://menus/dizziness_ui.gd" id="1_citqk"]
+
+[node name="DizzinessUI" type="MarginContainer" unique_id=362416894]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_citqk")
+
+[node name="Background" type="ColorRect" parent="." unique_id=562873090]
+layout_mode = 2
+color = Color(0, 0, 0, 0.47058824)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=241981092]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=1952191284]
+layout_mode = 2
+
+[node name="Bar" type="ColorRect" parent="MarginContainer/Control" unique_id=2117491548]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 1)
+size_flags_horizontal = 0
+color = Color(1, 0, 0.5686275, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1085182608]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Dizziness"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

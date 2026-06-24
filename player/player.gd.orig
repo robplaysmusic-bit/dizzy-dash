@@ -11,7 +11,7 @@ const JUMP_TIME : float = 0.5
 const RESPAWN_TIME : float = 1.0
 const RESPAWN_DISTANCE : float = 100.0
 
-var active := true
+<<<<<<< HEAD
 var dying : bool = false
 var dead : bool = false
 var death_position : Vector2
@@ -20,6 +20,9 @@ var death_velocity : Vector2
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var respawn_timer: Timer = $RespawnTimer
+=======
+var active := true
+>>>>>>> main
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if dying or dead: 
