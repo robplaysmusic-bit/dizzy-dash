@@ -29,11 +29,11 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=1642014191]
 position = Vector2(-13, 646)
 build_mode = 1
-polygon = PackedVector2Array(9, -159, 0, -646, 1613, -648, 1615, 264, 1677, 352, 1540, 486, 1438, 386, 600, 395)
+polygon = PackedVector2Array(9, -159, 0, -646, 1613, -648, 1615, 264, 1677, 352, 1540, 486, 1438, 386, 1293, 384, 1270, 205, 1189, 208, 1189.022, 388.67395, 600, 395)
 
 [node name="Line2D" type="Line2D" parent="Walls" unique_id=1032504609]
 position = Vector2(-6, 578)
-points = PackedVector2Array(1430, 458, 597, 460, 5, -100, -2, -581, 1605, -585, 1605, 324)
+points = PackedVector2Array(1430, 458, 1286, 452, 1267, 272, 1183, 275, 1185, 459, 597, 460, 5, -100, -2, -581, 1605, -585, 1605, 324)
 
 [node name="Pits" type="Node" parent="." unique_id=811412041]
 
