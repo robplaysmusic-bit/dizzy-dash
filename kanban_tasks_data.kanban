@@ -35,15 +35,15 @@
 			"uuid": "daccdce7-7b64-4350-9d03-c951e7bbab2c",
 			"title": "Doing",
 			"tasks": [
-				"3e998141-4593-44f3-8d6b-1a511afa60eb",
-				"891a0e66-84a8-43c2-a705-9999e79d6f17",
-				"2394bda5-d305-499a-b6b7-5f7b0683da6b"
+				"891a0e66-84a8-43c2-a705-9999e79d6f17"
 			]
 		},
 		{
 			"uuid": "4b0366d0-12f4-4b8d-9f74-47efefb0db8f",
 			"title": "Done",
 			"tasks": [
+				"2394bda5-d305-499a-b6b7-5f7b0683da6b",
+				"3e998141-4593-44f3-8d6b-1a511afa60eb",
 				"58ef9e98-32a6-42de-b268-c3c36437922b",
 				"44aa7c26-27b9-4aca-8425-6ffe15ec858d",
 				"4f431c29-11b6-4f07-8686-e9fc4d613ca6",
@@ -85,7 +85,7 @@
 		{
 			"uuid": "3e998141-4593-44f3-8d6b-1a511afa60eb",
 			"title": "handle jumps",
-			"description": "",
+			"description": "low walls and pits",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
 		},

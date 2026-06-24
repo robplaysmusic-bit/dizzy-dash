@@ -8,12 +8,27 @@ const WALK_DEACCEL : float = 1000.0
 const MAX_RUN_SPEED : float = 400.0
 const RUN_ACCEL : float = 500.0
 const JUMP_TIME : float = 0.5
+const RESPAWN_TIME : float = 1.0
+const RESPAWN_DISTANCE : float = 100.0
 
+var dying : bool = false
+var dead : bool = false
+var death_position : Vector2
+var death_velocity : Vector2
 
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var respawn_timer: Timer = $RespawnTimer
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	if dying or dead: 
+		if dying:
+			death_velocity = state.get_linear_velocity()
+			await get_tree().create_timer(0.1).timeout
+			state.set_linear_velocity(Vector2.ZERO)
+			dying = false
+			dead = true
+		return
 	var velocity := state.get_linear_velocity()
 	var step := state.get_step()
 	
@@ -52,8 +67,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 			abs_y_velocity = 0
 		velocity.y = signf(velocity.y) * abs_y_velocity
 	
-	# TODO: handle jumps
-	# TODO: apply z-axis "gravity"
 	# TBD how we will find floor contact on z axis and apply physics for things
 	# like ice / sand / etc.
 
@@ -62,20 +75,43 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 func is_jumping() -> bool:
 	return !jump_timer.is_stopped()
 
+func die() -> void:
+	dying = true
+	death_position = global_position
+	respawn_timer.start(RESPAWN_TIME)
+	var death_tween : Tween = get_tree().create_tween()
+	death_tween.tween_property(sprite, "scale", Vector2(0, 0), RESPAWN_TIME/2)
+	# TODO: perhaps some poof particle effect on await tween finished
+	pass
+
 func _handle_jump() -> void:
 	# bit 1 is for jump collisions
 	collision_layer = 0b10 
 	collision_mask = 0b10
 	jump_timer.start(JUMP_TIME)
-	
+
+	# TODO: maybe play an actual jump animation
 	var jump_tween : Tween = get_tree().create_tween()
 	jump_tween.tween_property(sprite, "scale", Vector2(1.5, 1.5), JUMP_TIME/2)
 	await jump_tween.finished
 	var fall_tween : Tween = get_tree().create_tween()
 	fall_tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), JUMP_TIME/2)
-	
 
 func _on_jump_timer_timeout() -> void:
 	# bit 0 is for grounded collisions
 	collision_layer = 0b1
 	collision_mask = 0b1
+
+
+func _on_respawn_timer_timeout() -> void:
+	# Respawn the player opposite the direction they were moving when they died
+	if death_velocity != Vector2.ZERO:
+		var direction = death_velocity.normalized()
+		self.global_position = self.global_position - (direction * RESPAWN_DISTANCE)
+	else:
+		push_warning("Died with no velocity ... not sure how to handle it. Let's hope it doesn't happen for now.")
+	# have the player reappear
+	# TODO: some animation / particle effect
+	sprite.scale = Vector2(1,1)
+	dying = false
+	dead = false

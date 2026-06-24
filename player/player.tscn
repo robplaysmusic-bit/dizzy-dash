@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_853w4"]
 radius = 16.0
 
-[node name="Player" type="RigidBody2D" unique_id=715659999]
+[node name="Player" type="RigidBody2D" unique_id=715659999 groups=["player"]]
 z_index = 10
 gravity_scale = 0.0
 script = ExtResource("1_oul6g")
@@ -37,4 +37,8 @@ shape = SubResource("CircleShape2D_853w4")
 wait_time = 0.2
 one_shot = true
 
+[node name="RespawnTimer" type="Timer" parent="." unique_id=1488038330]
+one_shot = true
+
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
