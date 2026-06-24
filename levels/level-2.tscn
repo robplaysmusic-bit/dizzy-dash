@@ -38,29 +38,29 @@ points = PackedVector2Array(175, 66, 4, 67, 70, -280, 105, -487, 496, -567, 789,
 position = Vector2(-12, 1156)
 points = PackedVector2Array(182, -514, 222, -677, 342, -878, 518, -939, 688, -861, 687, -712, 726, -553)
 
-[node name="Low Wall" type="Node" parent="." unique_id=598468639]
+[node name="Low Walls" type="Node" parent="." unique_id=598468639]
 
-[node name="LowWall" parent="Low Wall" unique_id=2128481197 instance=ExtResource("5_mobua")]
+[node name="LowWall" parent="Low Walls" unique_id=2128481197 instance=ExtResource("5_mobua")]
 position = Vector2(248.00002, 341)
 rotation = 0.57595867
 
-[node name="LowWall2" parent="Low Wall" unique_id=1854602677 instance=ExtResource("5_mobua")]
+[node name="LowWall2" parent="Low Walls" unique_id=1854602677 instance=ExtResource("5_mobua")]
 position = Vector2(215, 320)
 rotation = 0.57595867
 
-[node name="LowWall3" parent="Low Wall" unique_id=547499862 instance=ExtResource("5_mobua")]
+[node name="LowWall3" parent="Low Walls" unique_id=547499862 instance=ExtResource("5_mobua")]
 position = Vector2(185, 301)
 rotation = 0.57595867
 
-[node name="LowWall4" parent="Low Wall" unique_id=445462226 instance=ExtResource("5_mobua")]
+[node name="LowWall4" parent="Low Walls" unique_id=445462226 instance=ExtResource("5_mobua")]
 position = Vector2(154.00002, 280)
 rotation = 0.57595867
 
-[node name="LowWall5" parent="Low Wall" unique_id=1050939543 instance=ExtResource("5_mobua")]
+[node name="LowWall5" parent="Low Walls" unique_id=1050939543 instance=ExtResource("5_mobua")]
 position = Vector2(123, 259)
 rotation = 0.57595867
 
-[node name="LowWall6" parent="Low Wall" unique_id=521256487 instance=ExtResource("5_mobua")]
+[node name="LowWall6" parent="Low Walls" unique_id=521256487 instance=ExtResource("5_mobua")]
 position = Vector2(90.99999, 239)
 rotation = 0.55850536
 
