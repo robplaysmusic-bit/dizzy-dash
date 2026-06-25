@@ -4,10 +4,6 @@ const MAX_WALK_SPEED : float = 200.0
 const WALK_ACCEL : float = 1000.0
 const WALK_DEACCEL : float = 1000.0
 
-# not convinced this should actually be a thing
-const MAX_RUN_SPEED : float = 400.0
-const RUN_ACCEL : float = 500.0
-
 const JUMP_TIME : float = 0.5
 const RESPAWN_TIME : float = 1.0
 const RESPAWN_DISTANCE : float = 100.0
@@ -70,6 +66,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# like ice / sand / etc.
 	
 	_handle_icy_terrain()
+	_handle_animations(velocity)
 
 	state.set_linear_velocity(velocity)
 
@@ -91,6 +88,25 @@ func enter_ice() -> void:
 func exit_ice() -> void:
 	on_ice = false
 
+
+func _handle_animations(velocity : Vector2) -> void:
+	var x_abs : float = abs(velocity.x)
+	var y_abs : float = abs(velocity.y)
+	
+	#if x_abs < 0.1 and y_abs < 0.1:
+		#sprite.play()
+	
+	if x_abs > y_abs:
+		if velocity.x > 0:
+			sprite.play("walk_right")
+		else:
+			sprite.play("walk_left")
+	else:
+		if velocity.y > 0: 
+			sprite.play("walk_down") 
+		else: 
+			sprite.play("walk_up")
+
 func _handle_icy_terrain() -> void:
 	if on_ice != previously_on_ice:
 		if on_ice:
@@ -100,6 +116,7 @@ func _handle_icy_terrain() -> void:
 			linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
 			linear_damp = NORMAL_DAMP
 	previously_on_ice = on_ice
+
 
 func _handle_jump() -> void:
 	# bit 1 is for jump collisions
