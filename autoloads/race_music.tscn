@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4764kapqdvfn"]
 
-[ext_resource type="AudioStream" uid="uid://b40sbv7oeq63n" path="res://assets/music/racetrack.wav" id="1_v3k25"]
+[ext_resource type="AudioStream" uid="uid://bocfadwelrwo0" path="res://assets/music/racetrack.wav" id="1_v3k25"]
 
 [node name="RaceMusic" type="AudioStreamPlayer" unique_id=135415948]
 stream = ExtResource("1_v3k25")
