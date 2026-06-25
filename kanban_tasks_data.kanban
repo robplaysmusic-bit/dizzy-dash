@@ -21,13 +21,11 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
-				"4dc63747-07d8-4b3d-aecf-28ba0990ec05",
 				"d048dfac-4b18-4a59-9085-905f45d9c937",
-				"be93adba-5249-4fd1-bc52-eb7e9748845b",
-				"52765537-9e77-49cb-9964-a9907a9dcf54",
-				"1b67d14a-4ebd-4e61-832f-aab137b16e14",
 				"137ad9cf-d0f0-4564-90a2-83939c96ec7a",
-				"67f74b5e-2c3b-460e-8eed-fb836675d732"
+				"9e6cd106-8586-442a-a317-9adf1e28d584",
+				"67f74b5e-2c3b-460e-8eed-fb836675d732",
+				"52765537-9e77-49cb-9964-a9907a9dcf54"
 			]
 		},
 		{
@@ -39,6 +37,8 @@
 			"uuid": "4b0366d0-12f4-4b8d-9f74-47efefb0db8f",
 			"title": "Done",
 			"tasks": [
+				"4dc63747-07d8-4b3d-aecf-28ba0990ec05",
+				"be93adba-5249-4fd1-bc52-eb7e9748845b",
 				"a39ee5b7-edc3-4586-bc99-be648baebc10",
 				"891a0e66-84a8-43c2-a705-9999e79d6f17",
 				"43a6856e-5f3e-4895-ad4a-8acbb917183e",
@@ -52,6 +52,7 @@
 				"44aa7c26-27b9-4aca-8425-6ffe15ec858d",
 				"4f431c29-11b6-4f07-8686-e9fc4d613ca6",
 				"915fd93f-16de-4473-8a88-8fb071cd646d",
+				"1b67d14a-4ebd-4e61-832f-aab137b16e14",
 				"df5adb9f-a55d-46e0-9baa-7d00a5ea260d",
 				"2b1c2837-d394-46ac-9660-0f5ff83f640f"
 			]
@@ -159,7 +160,7 @@
 		{
 			"uuid": "52765537-9e77-49cb-9964-a9907a9dcf54",
 			"title": "Start screen + tutorial screen pre first-spin",
-			"description": "",
+			"description": "itch page good enough?",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
 		},
@@ -214,9 +215,16 @@
 		},
 		{
 			"uuid": "67f74b5e-2c3b-460e-8eed-fb836675d732",
-			"title": "dizziness overflows when too high before retry",
+			"title": "dizziness overflow after retrying run w/ high dizziness",
 			"description": "",
 			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
+			"steps": []
+		},
+		{
+			"uuid": "9e6cd106-8586-442a-a317-9adf1e28d584",
+			"title": "retry from spin",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
 		}
 	],
