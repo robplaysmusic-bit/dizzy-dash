@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deqpw2sw4iuc0"
-path="res://.godot/imported/placeholder-protag.png-7f6bf4d0cf739321e971e883822faf72.ctex"
+uid="uid://cwxfesyt2nrng"
+path="res://.godot/imported/geordie-the-wombat.png-4af9323884492cd1d0b9392dd874bbf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/placeholder-protag.png"
-dest_files=["res://.godot/imported/placeholder-protag.png-7f6bf4d0cf739321e971e883822faf72.ctex"]
+source_file="res://assets/sprites/geordie-the-wombat.png"
+dest_files=["res://.godot/imported/geordie-the-wombat.png-4af9323884492cd1d0b9392dd874bbf4.ctex"]
 
 [params]
 
