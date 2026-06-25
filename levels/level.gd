@@ -17,6 +17,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	timer_ui.pause_ui.visible = false
 	timer_ui.result_ui.visible = false
+	if !RaceMusic.playing: # prevent restarting music on retry
+		RaceMusic.play()
 	finish_line.crossed.connect(_on_finish_line_crossed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
