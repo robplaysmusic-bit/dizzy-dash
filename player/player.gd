@@ -105,6 +105,7 @@ func _handle_animations(velocity : Vector2) -> void:
 				sprite.play("idle_up")
 			Vector2.DOWN:
 				sprite.play("idle_down")
+		return
 			
 	
 	if x_abs > y_abs:

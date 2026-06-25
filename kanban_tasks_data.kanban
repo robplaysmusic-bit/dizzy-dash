@@ -24,6 +24,7 @@
 				"137ad9cf-d0f0-4564-90a2-83939c96ec7a",
 				"9e6cd106-8586-442a-a317-9adf1e28d584",
 				"67f74b5e-2c3b-460e-8eed-fb836675d732",
+				"6ad2d585-134c-4668-9bb1-5e22d2c2ccd3",
 				"52765537-9e77-49cb-9964-a9907a9dcf54"
 			]
 		},
@@ -234,6 +235,13 @@
 			"title": "fill in environment art",
 			"description": "",
 			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "6ad2d585-134c-4668-9bb1-5e22d2c2ccd3",
+			"title": "Occasionally get softlocked by respawning into a pit",
+			"description": "",
+			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
 			"steps": []
 		}
 	],
