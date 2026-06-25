@@ -21,6 +21,8 @@ var death_velocity : Vector2
 var on_ice : bool = false
 var previously_on_ice : bool = false
 
+var last_direction : Vector2 = Vector2.DOWN
+
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var respawn_timer: Timer = $RespawnTimer
@@ -93,19 +95,32 @@ func _handle_animations(velocity : Vector2) -> void:
 	var x_abs : float = abs(velocity.x)
 	var y_abs : float = abs(velocity.y)
 	
-	#if x_abs < 0.1 and y_abs < 0.1:
-		#sprite.play()
+	if x_abs < 10 and y_abs < 10:
+		match last_direction:
+			Vector2.LEFT:
+				sprite.play("idle_left")
+			Vector2.RIGHT:
+				sprite.play("idle_right")
+			Vector2.UP:
+				sprite.play("idle_up")
+			Vector2.DOWN:
+				sprite.play("idle_down")
+			
 	
 	if x_abs > y_abs:
 		if velocity.x > 0:
 			sprite.play("walk_right")
+			last_direction = Vector2.RIGHT
 		else:
 			sprite.play("walk_left")
+			last_direction = Vector2.LEFT
 	else:
 		if velocity.y > 0: 
-			sprite.play("walk_down") 
+			sprite.play("walk_down")
+			last_direction = Vector2.DOWN
 		else: 
 			sprite.play("walk_up")
+			last_direction = Vector2.UP
 
 func _handle_icy_terrain() -> void:
 	if on_ice != previously_on_ice:
