@@ -43,6 +43,7 @@ var disabled : bool = false
 var lead_in_counts : int = 0
 
 func _ready() -> void:
+	lead_in_panel.visible = true
 	RaceMusic.stop()
 	SpinMusic.play()
 	DizzyManager.set_dizziness(0)
