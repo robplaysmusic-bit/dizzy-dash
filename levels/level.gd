@@ -25,7 +25,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	timer_ui.initialize_goal_times(platinum_time, gold_time, 1, bronze_time)
+	timer_ui.initialize_goal_times(platinum_time, gold_time, silver_time, bronze_time)
 	if Input.is_action_pressed("jump"):
 		if timer_ui.result_ui.visible:
 			if next_course == ResourceUID.id_to_text(ResourceLoader.get_resource_uid("res://menus/final_results.tscn")):

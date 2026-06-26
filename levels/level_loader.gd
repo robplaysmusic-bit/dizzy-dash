@@ -24,7 +24,7 @@ func load_next_course() -> void:
 	animation_player.play("fade_from_black")
 
 func load_final_results() -> void:
-		# unpause so we don't get trapped in await animation hell
+	# unpause so we don't get trapped in await animation hell
 	if get_tree().paused : get_tree().paused = false
 	animation_player.play("fade_to_black")
 	await animation_player.animation_finished
