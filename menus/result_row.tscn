@@ -13,25 +13,28 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_3j28s")
 
-[node name="Label" type="Label" parent="." unique_id=1908045913]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1996801567]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -108.0
+offset_right = 108.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TierLabel" type="Label" parent="HBoxContainer" unique_id=275137789]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "00:00.00"
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="HBoxContainer" unique_id=1908045913]
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Personal Best"
 horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="." unique_id=275137789]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "00:00.00"
 vertical_alignment = 1

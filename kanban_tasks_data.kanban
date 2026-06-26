@@ -21,6 +21,7 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
+				"3e6ad42b-1ecf-4067-afbd-45c522371d3a",
 				"67f74b5e-2c3b-460e-8eed-fb836675d732",
 				"6ad2d585-134c-4668-9bb1-5e22d2c2ccd3",
 				"52765537-9e77-49cb-9964-a9907a9dcf54"
@@ -266,6 +267,13 @@
 			"title": "Better indication of controls",
 			"description": "",
 			"category": "7670262b-4486-4472-aef5-d91ab702bfce",
+			"steps": []
+		},
+		{
+			"uuid": "3e6ad42b-1ecf-4067-afbd-45c522371d3a",
+			"title": "Times and tiers are swapped on results screen in-game",
+			"description": "Renders correctly when running results UI in standalone",
+			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
 			"steps": []
 		}
 	],

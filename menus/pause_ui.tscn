@@ -63,7 +63,7 @@ custom_maximum_size = Vector2(64, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "Restart Course : Bksp / "
+text = "Retry Course : Bksp / "
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=673427489]
@@ -89,7 +89,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "Restart From Last Spin : E / "
+text = "Retry From Last Spin : E / "
 horizontal_alignment = 2
 vertical_alignment = 1
 

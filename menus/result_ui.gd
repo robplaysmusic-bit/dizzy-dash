@@ -20,7 +20,7 @@ class Score:
 ]
 
 func by_time(a: Score, b: Score) -> bool:
-	return a.time < b.time
+	return a.time > b.time
 
 func set_score(plat: float, gold: float, silver: float, bronze: float, time: float, best: float) -> void:
 	var times: Array[Score] = [

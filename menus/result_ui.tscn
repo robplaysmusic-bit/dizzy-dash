@@ -4,10 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://o52rpviwe7rp" path="res://menus/result_row.tscn" id="2_nmg3m"]
 [ext_resource type="Texture2D" uid="uid://dfmm38bkbmhcd" path="res://assets/sprites/control-indications.png" id="3_nmg3m"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmg3m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kuh55"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmg3m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u2k1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="ResultUI" type="Control" unique_id=637257714]
@@ -53,15 +56,16 @@ uppercase = true
 
 [node name="M" type="MarginContainer" parent="M/V" unique_id=601336985]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 2
 theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 175
 theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 20
 
 [node name="V" type="VBoxContainer" parent="M/V/M" unique_id=1396281897]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = -230
 
 [node name="ResultRow" parent="M/V/M/V" unique_id=1031830375 instance=ExtResource("2_nmg3m")]
 layout_mode = 2
@@ -81,39 +85,79 @@ layout_mode = 2
 [node name="ResultRow6" parent="M/V/M/V" unique_id=1555637630 instance=ExtResource("2_nmg3m")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="M/V" unique_id=1051422997]
+[node name="MarginContainer" type="MarginContainer" parent="M/V" unique_id=584891994]
 layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 50
 
-[node name="Label" type="Label" parent="M/V/HBoxContainer" unique_id=9292614]
+[node name="VBoxContainer" type="VBoxContainer" parent="M/V/MarginContainer" unique_id=536563812]
 layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M/V/MarginContainer/VBoxContainer" unique_id=1164555741]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer" unique_id=915444558]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "Restart : Bksp / "
+text = "Next Course                 Space /"
 
-[node name="Panel" type="Panel" parent="M/V/HBoxContainer" unique_id=905710884]
+[node name="Panel2" type="Panel" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1245909576]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_nmg3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer/Panel2" unique_id=1828063108]
+position = Vector2(16, 16)
+texture = ExtResource("3_nmg3m")
+hframes = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="M/V/MarginContainer/VBoxContainer" unique_id=1760823644]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=9292614]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Retry Course                 Bksp / "
+horizontal_alignment = 2
+
+[node name="Panel" type="Panel" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=905710884]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kuh55")
 
-[node name="Sprite2D" type="Sprite2D" parent="M/V/HBoxContainer/Panel" unique_id=1653027558]
+[node name="Sprite2D" type="Sprite2D" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer2/Panel" unique_id=1653027558]
 position = Vector2(16, 16)
 texture = ExtResource("3_nmg3m")
 hframes = 4
 frame = 1
 
-[node name="Label2" type="Label" parent="M/V/HBoxContainer" unique_id=915444558]
+[node name="HBoxContainer3" type="HBoxContainer" parent="M/V/MarginContainer/VBoxContainer" unique_id=1485726758]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RestartFromSpinControls" type="Label" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1607692763]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "Next Level : Space /"
+text = "Retry From Last Spin         E / "
 horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Panel2" type="Panel" parent="M/V/HBoxContainer" unique_id=1245909576]
+[node name="Panel3" type="Panel" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=285456824]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nmg3m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_4u2k1")
 
-[node name="Sprite2D" type="Sprite2D" parent="M/V/HBoxContainer/Panel2" unique_id=1828063108]
+[node name="Sprite2D" type="Sprite2D" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer3/Panel3" unique_id=1233960850]
 position = Vector2(16, 16)
 texture = ExtResource("3_nmg3m")
 hframes = 4
+frame = 3
