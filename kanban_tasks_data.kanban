@@ -21,6 +21,7 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
+				"d2da8051-c841-4b28-a143-a2cbb4c427e3",
 				"67f74b5e-2c3b-460e-8eed-fb836675d732",
 				"6ad2d585-134c-4668-9bb1-5e22d2c2ccd3",
 				"3e6ad42b-1ecf-4067-afbd-45c522371d3a",
@@ -289,6 +290,13 @@
 			"title": "drop collisions in OOB areas near pits (so the player can't spawn there)",
 			"description": "",
 			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
+			"steps": []
+		},
+		{
+			"uuid": "d2da8051-c841-4b28-a143-a2cbb4c427e3",
+			"title": "Final balancing pass",
+			"description": "Tweak goal times, ice speed, time slow rate, dizziness, etc.",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
 			"steps": []
 		}
 	],
