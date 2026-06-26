@@ -66,6 +66,22 @@ func set_dizziness(value : int) -> void:
 func get_dizziness() -> float:
 	return _dizziness
 
+func get_dizziness_tier() -> String:
+	match _tier:
+		Dizzy.NOT_DIZZY:
+			return "Dizziness"
+		Dizzy.SLIGHTLY:
+			return "Hmm"
+		Dizzy.SOMEWHAT:
+			return "Oof"
+		Dizzy.STANDARD:
+			return "I'm dizzy"
+		Dizzy.VERY:
+			return "Oh man"
+		Dizzy.EXTREMELY:
+			return "Help!"
+		_: #Dizzy.OH_NO
+			return "Oh lawdy!"
 
 # Intended to be called every physics processing frame to "correct" player inputs
 func apply_dizziness(player_input : Vector2) -> Vector2:
