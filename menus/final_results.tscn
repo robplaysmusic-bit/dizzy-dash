@@ -312,7 +312,7 @@ tile_set = SubResource("TileSet_8hfeq")
 sprite_frames = SubResource("SpriteFrames_yj6ch")
 animation = &"idle_down"
 autoplay = "idle_down"
-frame_progress = 0.9442786
+frame_progress = 0.9854274
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=1194347257]
 zoom = Vector2(4, 4)
