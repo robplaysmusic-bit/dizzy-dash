@@ -16,9 +16,9 @@ const ROTATION_CHANGE_INDEX : int = 2
 const _info : Dictionary[Dizzy, Array] = {
 	Dizzy.NOT_DIZZY : 		[0,		0,		0.0],
 	Dizzy.SLIGHTLY : 		[178, 	182,	0.0], # centered around 180
-	Dizzy.SOMEWHAT : 		[28, 	32,		0.0], # centered around 30
-	Dizzy.STANDARD : 		[43, 	47,		0.0], # centered around 45
-	Dizzy.VERY : 			[58, 	62,		1.0], # centered around 60
+	Dizzy.SOMEWHAT : 		[43, 	47,		0.0], # centered around 45
+	Dizzy.STANDARD : 		[58, 	32,		0.0], # centered around 60
+	Dizzy.VERY : 			[65, 	85,		1.0], # centered around 75
 	Dizzy.EXTREMELY: 		[85, 	95,		0.5], # centered around 90
 	Dizzy.OH_NO :			[80,	100,	0.1]  # centered around 90
 }
