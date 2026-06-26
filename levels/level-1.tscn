@@ -27,10 +27,10 @@ sources/1 = SubResource("TileSetAtlasSource_oewpf")
 
 [node name="Level1" type="Node2D" unique_id=938879597]
 script = ExtResource("1_471vb")
-platinum_time = 4.5
-gold_time = 6.0
-silver_time = 8.0
-bronze_time = 15.0
+platinum_time = 5.0
+gold_time = 7.5
+silver_time = 10.0
+bronze_time = 20.0
 level_num = 1
 next_course = "uid://d1swo5fc3sqe7"
 

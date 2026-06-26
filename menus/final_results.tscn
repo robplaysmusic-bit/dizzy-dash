@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dluua1tdwt8rt" path="res://assets/sprites/world-tile-set.png" id="1_2gui1"]
 [ext_resource type="Texture2D" uid="uid://cwxfesyt2nrng" path="res://assets/sprites/geordie-the-wombat.png" id="2_mj320"]
+[ext_resource type="Script" uid="uid://fnj1tmfal0so" path="res://menus/final_results_ui.gd" id="3_8hfeq"]
 [ext_resource type="PackedScene" uid="uid://o52rpviwe7rp" path="res://menus/result_row.tscn" id="3_mj320"]
 [ext_resource type="Texture2D" uid="uid://dfmm38bkbmhcd" path="res://assets/sprites/control-indications.png" id="4_tjicw"]
 
@@ -311,12 +312,13 @@ tile_set = SubResource("TileSet_8hfeq")
 sprite_frames = SubResource("SpriteFrames_yj6ch")
 animation = &"idle_down"
 autoplay = "idle_down"
-frame_progress = 0.33386812
+frame_progress = 0.41553771
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D" unique_id=1194347257]
 zoom = Vector2(4, 4)
 
 [node name="FinalResultsUI" type="CanvasLayer" parent="." unique_id=969350822]
+script = ExtResource("3_8hfeq")
 
 [node name="Label" type="Label" parent="FinalResultsUI" unique_id=730942369]
 anchors_preset = 5
@@ -369,15 +371,15 @@ theme_override_constants/margin_top = 75
 layout_mode = 2
 theme_override_constants/separation = 31
 
-[node name="ResultRow" parent="FinalResultsUI/Results/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1031830375 instance=ExtResource("3_mj320")]
+[node name="Course1Results" parent="FinalResultsUI/Results/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1031830375 instance=ExtResource("3_mj320")]
 custom_maximum_size = Vector2(-1, 25)
 layout_mode = 2
 
-[node name="ResultRow2" parent="FinalResultsUI/Results/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=834410652 instance=ExtResource("3_mj320")]
+[node name="Course2Results" parent="FinalResultsUI/Results/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=834410652 instance=ExtResource("3_mj320")]
 custom_maximum_size = Vector2(-1, 25)
 layout_mode = 2
 
-[node name="ResultRow3" parent="FinalResultsUI/Results/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1938695327 instance=ExtResource("3_mj320")]
+[node name="Course3Results" parent="FinalResultsUI/Results/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1938695327 instance=ExtResource("3_mj320")]
 custom_maximum_size = Vector2(-1, 25)
 layout_mode = 2
 

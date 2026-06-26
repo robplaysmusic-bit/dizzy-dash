@@ -21,13 +21,17 @@ func _ready() -> void:
 	if !RaceMusic.playing: # prevent restarting music on retry
 		RaceMusic.play()
 	finish_line.crossed.connect(_on_finish_line_crossed)
+	TimeTracker.register_times(level_num, platinum_time, gold_time, silver_time, bronze_time)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	timer_ui.initialize_goal_times(platinum_time, gold_time, silver_time, bronze_time)
+	timer_ui.initialize_goal_times(platinum_time, gold_time, 1, bronze_time)
 	if Input.is_action_pressed("jump"):
 		if timer_ui.result_ui.visible:
-			LevelLoader.load_spin_game(next_course)
+			if next_course == ResourceUID.id_to_text(ResourceLoader.get_resource_uid("res://menus/final_results.tscn")):
+				LevelLoader.load_final_results()
+			else:
+				LevelLoader.load_spin_game(next_course)
 			queue_free.call_deferred()
 	if Input.is_action_pressed("retry_spin"):
 		if timer_ui.result_ui.visible or timer_ui.pause_ui.visible:
