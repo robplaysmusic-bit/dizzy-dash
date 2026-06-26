@@ -21,16 +21,6 @@ offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mwja5")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Area2D/Panel" unique_id=1596093910]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 32.0
-theme_override_font_sizes/font_size = 8
-text = "pit"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=669870427]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_c77v6")

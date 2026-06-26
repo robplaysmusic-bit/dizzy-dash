@@ -21,6 +21,7 @@
 			"uuid": "2eaad5b8-10bb-4dc8-8888-4c7f1529df0a",
 			"title": "Todo",
 			"tasks": [
+				"6b1d18d4-3949-4980-b4c2-2061e396bd4c",
 				"137ad9cf-d0f0-4564-90a2-83939c96ec7a",
 				"9e6cd106-8586-442a-a317-9adf1e28d584",
 				"67f74b5e-2c3b-460e-8eed-fb836675d732",
@@ -31,15 +32,16 @@
 		{
 			"uuid": "daccdce7-7b64-4350-9d03-c951e7bbab2c",
 			"title": "Doing",
-			"tasks": [
-				"d048dfac-4b18-4a59-9085-905f45d9c937",
-				"9fe81e70-53f3-40cd-aa61-14a8ba864343"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "4b0366d0-12f4-4b8d-9f74-47efefb0db8f",
 			"title": "Done",
 			"tasks": [
+				"9fe81e70-53f3-40cd-aa61-14a8ba864343",
+				"1bd8f0b7-a8b2-4d4e-9850-e94bc395b29a",
+				"6f204f61-1e30-431a-8352-1946cbe446d3",
+				"d048dfac-4b18-4a59-9085-905f45d9c937",
 				"4dc63747-07d8-4b3d-aecf-28ba0990ec05",
 				"be93adba-5249-4fd1-bc52-eb7e9748845b",
 				"a39ee5b7-edc3-4586-bc99-be648baebc10",
@@ -242,6 +244,27 @@
 			"title": "Occasionally get softlocked by respawning into a pit",
 			"description": "",
 			"category": "22838bad-712d-4131-b57a-18ced9a6a508",
+			"steps": []
+		},
+		{
+			"uuid": "6f204f61-1e30-431a-8352-1946cbe446d3",
+			"title": "low wall sprites",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "1bd8f0b7-a8b2-4d4e-9850-e94bc395b29a",
+			"title": "prettier walls",
+			"description": "",
+			"category": "ba2ddbd2-9882-4b55-8e91-27f715557df2",
+			"steps": []
+		},
+		{
+			"uuid": "6b1d18d4-3949-4980-b4c2-2061e396bd4c",
+			"title": "Better indication of controls",
+			"description": "",
+			"category": "7670262b-4486-4472-aef5-d91ab702bfce",
 			"steps": []
 		}
 	],
