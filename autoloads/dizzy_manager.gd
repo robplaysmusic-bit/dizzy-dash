@@ -9,18 +9,25 @@ const MAX_VERY_DIZZY : int = 20
 const MAX_EXTREMELY_DIZZY : int = 25
 const MAX_OH_NO_DIZZY : int = 5000
 
-const MIN_ROTATION_INDEX : int = 0
-const MAX_ROTATION_INDEX : int = 1
-const ROTATION_CHANGE_INDEX : int = 2
-# tier : [min angle, max angle, angle change rate]
-const _info : Dictionary[Dizzy, Array] = {
-	Dizzy.NOT_DIZZY : 		[0,		0,		0.0],
-	Dizzy.SLIGHTLY : 		[178, 	182,	0.0], # centered around 180
-	Dizzy.SOMEWHAT : 		[43, 	47,		0.0], # centered around 45
-	Dizzy.STANDARD : 		[58, 	32,		0.0], # centered around 60
-	Dizzy.VERY : 			[65, 	85,		1.0], # centered around 75
-	Dizzy.EXTREMELY: 		[85, 	95,		0.5], # centered around 90
-	Dizzy.OH_NO :			[80,	100,	0.1]  # centered around 90
+class DizzyEffect:
+	var min_angle: float
+	var max_angle: float
+	var angle_change_rate: float
+
+	func _init(center: float, width: float, rate: float) -> void:
+		self.min_angle = center - width
+		self.max_angle = center + width
+		self.angle_change_rate = rate
+
+
+var _info : Dictionary[Dizzy, DizzyEffect] = {
+	Dizzy.NOT_DIZZY: DizzyEffect.new(  0,  0, 0.0),
+	Dizzy.SLIGHTLY : DizzyEffect.new(180,  2, 0.0),
+	Dizzy.SOMEWHAT : DizzyEffect.new( 45,  2, 0.0),
+	Dizzy.STANDARD : DizzyEffect.new( 45, 13, 0.0),
+	Dizzy.VERY     : DizzyEffect.new( 75, 10, 1.0),
+	Dizzy.EXTREMELY: DizzyEffect.new( 90,  5, 0.5),
+	Dizzy.OH_NO    : DizzyEffect.new( 90, 10, 0.1)
 }
 
 var _tier : Dizzy = Dizzy.NOT_DIZZY
@@ -63,28 +70,28 @@ func get_dizziness() -> float:
 # Intended to be called every physics processing frame to "correct" player inputs
 func apply_dizziness(player_input : Vector2) -> Vector2:
 	var dizzy_input : Vector2 = Vector2.ZERO
-	var rotation_angle : int = 0
+	var rotation_angle := 0.0
 	
-	var rotation_range : int = _info[_tier][MAX_ROTATION_INDEX] - _info[_tier][MIN_ROTATION_INDEX]
+	var rotation_range := _info[_tier].max_angle - _info[_tier].min_angle
 	if _tier != Dizzy.NOT_DIZZY: # avoid modulo by zero
-		rotation_angle = _info[_tier][MIN_ROTATION_INDEX] + (_dizziness % rotation_range)
+		rotation_angle = _info[_tier].min_angle + (fmod(_dizziness, rotation_range))
 	
-	if _info[_tier][ROTATION_CHANGE_INDEX] > 0 and rotation_change_timer.is_stopped():
-		rotation_change_timer.start(_info[_tier][ROTATION_CHANGE_INDEX])
+	if _info[_tier].angle_change_rate > 0 and rotation_change_timer.is_stopped():
+		rotation_change_timer.start(_info[_tier].angle_change_rate)
 	
 	dizzy_input = player_input.rotated(deg_to_rad(rotation_angle))
 	return dizzy_input
 
 
 func _on_rotation_change_timer_timeout() -> void:
-	var previous_tier = _tier
+	var previous_tier := _tier
 	if rotation_increasing:
 		_dizziness += 1
 	else:
 		_dizziness -= 1
 	
 	# we hit a boundary, change directions
-	if _tier != previous_tier or _dizziness == _info[Dizzy.OH_NO][MAX_ROTATION_INDEX]:
+	if _tier != previous_tier or _dizziness == _info[Dizzy.OH_NO].max_angle:
 		rotation_increasing = !rotation_increasing
 		if rotation_increasing:
 			_dizziness += 1

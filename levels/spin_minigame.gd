@@ -80,7 +80,7 @@ func _process(_delta: float) -> void:
 		last_progress_msec = Time.get_ticks_msec()
 		if for_goal == 4:
 			spins += 1
-			DizzyManager.set_dizziness(abs(spins))
+			DizzyManager.set_dizziness(absi(spins))
 			for_goal = 0
 			rev_goal = 0
 	elif angle_in_range(direction, rev_goals[rev_goal], rev_goals[rev_goal + 1]):
@@ -88,7 +88,7 @@ func _process(_delta: float) -> void:
 		last_progress_msec = Time.get_ticks_msec()
 		if rev_goal == 4:
 			spins -= 1
-			DizzyManager.set_dizziness(abs(spins))
+			DizzyManager.set_dizziness(absi(spins))
 			rev_goal = 0
 			for_goal = 0
 
@@ -112,7 +112,7 @@ func angle_in_range(angle: float, start: float, end: float) -> bool:
 			angle -= PI_2
 		return angle < start && angle >= end - FUDGE
 
-func _spin_sprite(input: Vector2):
+func _spin_sprite(input: Vector2) -> void:
 	var x_abs : float = abs(input.x)
 	var y_abs : float = abs(input.y)
 	
@@ -136,15 +136,15 @@ func _start_spin_game() -> void:
 	warning_timer.start(warning_time)
 
 func _update_timer_label() -> void:
-	var seconds_remaining = int(mini_game_time)
-	var ms_remaining = (mini_game_time - seconds_remaining) * 100
+	var seconds_remaining := int(mini_game_time)
+	var ms_remaining := (mini_game_time - seconds_remaining) * 100
 	time_remaining.text = "%02d.%02d" % [seconds_remaining, ms_remaining]
 
 
 func _on_spin_time_timeout() -> void:
 	disabled = true
 	time_remaining.text = "00.00" # account for timing variation
-	DizzyManager.set_dizziness(abs(spins))
+	DizzyManager.set_dizziness(absi(spins))
 	LevelLoader.load_next_course()
 	queue_free()
 

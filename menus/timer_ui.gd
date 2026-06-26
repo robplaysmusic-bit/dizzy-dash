@@ -11,7 +11,6 @@ var time_multiplier : float = 01.0
 var stopped : bool = false
 
 @onready var current_time: Label = $MarginContainer/VBoxContainer/CurrentTime
-@onready var personal_best: Label = $MarginContainer/VBoxContainer/PersonalBest
 @onready var platinum_time: Label = $MarginContainer/VBoxContainer/PlatinumTime
 @onready var gold_time: Label = $MarginContainer/VBoxContainer/GoldTime
 @onready var silver_time: Label = $MarginContainer/VBoxContainer/SilverTime
@@ -22,7 +21,7 @@ var stopped : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_time_msec = Time.get_ticks_msec()
-	var dizziness = DizzyManager.get_dizziness()
+	var dizziness := DizzyManager.get_dizziness()
 	if dizziness != 0:
 		time_multiplier = TIME_MULTIPLIER_NUMERATOR / dizziness 
 	else: #avoid divide by 0

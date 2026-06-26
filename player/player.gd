@@ -43,7 +43,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# read player inputs and apply dizziness
 	if active:
 		raw_input = Input.get_vector("left", "right", "up", "down")
-	var dizzy_input = DizzyManager.apply_dizziness(raw_input)
+	var dizzy_input := DizzyManager.apply_dizziness(raw_input)
 
 	if Input.is_action_just_pressed("jump") and jump_timer.is_stopped():
 		_handle_jump()
@@ -156,7 +156,7 @@ func _on_jump_timer_timeout() -> void:
 func _on_respawn_timer_timeout() -> void:
 	# Respawn the player opposite the direction they were moving when they died
 	if death_velocity != Vector2.ZERO:
-		var direction = death_velocity.normalized()
+		var direction := death_velocity.normalized()
 		self.global_position = self.global_position - (direction * RESPAWN_DISTANCE)
 	else:
 		push_warning("Died with no velocity ... not sure how to handle it. Let's hope it doesn't happen for now.")

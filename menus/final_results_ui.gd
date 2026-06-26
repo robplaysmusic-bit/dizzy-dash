@@ -11,20 +11,20 @@ const COURSE_3 : String = "res://levels/level-3.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var course_1_time = TimeTracker.get_best_time(1)
-	var course_1_color = TimeTracker.get_time_color(1)
+	var course_1_time: float = TimeTracker.get_best_time(1)
+	var course_1_color: Color = TimeTracker.get_time_color(1)
 	course_1_results.set_text("Course 1", course_1_time, course_1_color)
 
-	var course_2_time = TimeTracker.get_best_time(2)
-	var course_2_color = TimeTracker.get_time_color(2)
+	var course_2_time: float = TimeTracker.get_best_time(2)
+	var course_2_color: Color = TimeTracker.get_time_color(2)
 	course_2_results.set_text("Course 2", course_2_time, course_2_color)
 	
-	var course_3_time = TimeTracker.get_best_time(3)
-	var course_3_color = TimeTracker.get_time_color(3)
+	var course_3_time: float = TimeTracker.get_best_time(3)
+	var course_3_color: Color = TimeTracker.get_time_color(3)
 	course_3_results.set_text("Course 3", course_3_time, course_3_color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_released("jump"):
 		LevelLoader.load_spin_game(COURSE_1)
 	elif Input.is_action_just_released("back"):

@@ -3,8 +3,8 @@ extends Node
 @export_file("*.tscn") var next_course : String
 @onready var animation_player: AnimationPlayer = $SceneTransitionCanvasLayer/AnimationPlayer
 
-const SPIN_GAME : Resource = preload("res://levels/spin-test.tscn")
-const FINAL_RESULTS : Resource = preload("res://menus/final_results.tscn")
+const SPIN_GAME : PackedScene = preload("res://levels/spin-test.tscn")
+const FINAL_RESULTS : PackedScene = preload("res://menus/final_results.tscn")
 
 func load_spin_game(next : String) -> void:
 	# unpause so we don't get trapped in await animation hell
