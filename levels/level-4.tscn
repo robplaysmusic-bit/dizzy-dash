@@ -4,8 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://ckvc7ptveurqo" path="res://player/player.tscn" id="2_kbgfs"]
 [ext_resource type="PackedScene" uid="uid://dwipdyy12kdpv" path="res://menus/timer_ui.tscn" id="3_qiv2b"]
 [ext_resource type="PackedScene" uid="uid://cbl2ck3gnq7y0" path="res://levels/components/finish_line.tscn" id="4_pg62g"]
-[ext_resource type="PackedScene" uid="uid://dvbgxwmrmnn7k" path="res://levels/components/pit.tscn" id="5_8ylrv"]
-[ext_resource type="PackedScene" uid="uid://1pge4wljhsbh" path="res://levels/components/low_wall.tscn" id="7_8r0bo"]
 
 [node name="Level4" type="Node2D" unique_id=938879597]
 script = ExtResource("1_u5rih")
@@ -34,46 +32,3 @@ polygon = PackedVector2Array(9, -159, 0, -646, 1613, -648, 1615, 264, 1677, 352,
 [node name="Line2D" type="Line2D" parent="Walls" unique_id=1032504609]
 position = Vector2(-6, 578)
 points = PackedVector2Array(1430, 458, 597, 460, 5, -100, -2, -581, 1605, -585, 1605, 324)
-
-[node name="Pits" type="Node" parent="." unique_id=811412041]
-
-[node name="Pit3" parent="Pits" unique_id=1115926779 instance=ExtResource("5_8ylrv")]
-z_index = 1
-position = Vector2(373, 170)
-rotation = -0.7853982
-scale = Vector2(30, 30)
-
-[node name="Pit2" parent="Pits" unique_id=541420944 instance=ExtResource("5_8ylrv")]
-position = Vector2(367, 7.0000153)
-scale = Vector2(5, 5)
-
-[node name="Pit6" parent="Pits" unique_id=1458122870 instance=ExtResource("5_8ylrv")]
-position = Vector2(693, 914)
-rotation = 0.7853982
-scale = Vector2(5, 5)
-
-[node name="Pit4" parent="Pits" unique_id=1731609005 instance=ExtResource("5_8ylrv")]
-position = Vector2(1113, 187)
-scale = Vector2(15, 15)
-
-[node name="Pit5" parent="Pits" unique_id=217529887 instance=ExtResource("5_8ylrv")]
-position = Vector2(536.00006, 330.00003)
-scale = Vector2(10, 10)
-
-[node name="Low Walls" type="Node" parent="." unique_id=1765611899]
-
-[node name="LowWall" parent="Low Walls" unique_id=2128481197 instance=ExtResource("7_8r0bo")]
-position = Vector2(470, 699)
-rotation = 0.7853982
-
-[node name="LowWall2" parent="Low Walls" unique_id=260182701 instance=ExtResource("7_8r0bo")]
-position = Vector2(492.00006, 675.00006)
-rotation = 0.7853982
-
-[node name="LowWall3" parent="Low Walls" unique_id=672017171 instance=ExtResource("7_8r0bo")]
-position = Vector2(538, 629)
-rotation = 0.7853982
-
-[node name="LowWall4" parent="Low Walls" unique_id=389679887 instance=ExtResource("7_8r0bo")]
-position = Vector2(516, 651)
-rotation = 0.7853982
