@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://cwxfesyt2nrng" path="res://assets/sprites/geordie-the-wombat.png" id="6_uluqv"]
 [ext_resource type="Texture2D" uid="uid://dluua1tdwt8rt" path="res://assets/sprites/world-tile-set.png" id="7_focia"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tt2tb"]
+radius = 81.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt2tb"]
+size = Vector2(115, 158)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uluqv"]
 size = Vector2(276, 32)
 
@@ -79,6 +85,14 @@ points = PackedVector2Array(175, 66, 4, 67, 5, -273, 77, -505, 496, -567, 789, -
 z_index = 1
 position = Vector2(-12, 1156)
 points = PackedVector2Array(183, -509, 182, -771, 342, -878, 518, -939, 688, -861, 687, -712, 726, -553)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=825666850]
+position = Vector2(599, 343)
+shape = SubResource("CircleShape2D_tt2tb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=894048872]
+position = Vector2(1008.5, 333)
+shape = SubResource("RectangleShape2D_tt2tb")
 
 [node name="Low Walls" type="Node" parent="." unique_id=598468639]
 
