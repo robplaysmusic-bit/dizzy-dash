@@ -46,7 +46,7 @@ next_course = "uid://4nwdhi7v7ey4"
 position = Vector2(20, 624)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 limit_left = -24
 limit_top = -33
 limit_right = 1027

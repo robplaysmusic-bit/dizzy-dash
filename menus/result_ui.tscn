@@ -47,9 +47,9 @@ uppercase = true
 [node name="M" type="MarginContainer" parent="M/V" unique_id=601336985]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 300
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 300
 theme_override_constants/margin_bottom = 20
 
 [node name="V" type="VBoxContainer" parent="M/V/M" unique_id=1396281897]
@@ -77,10 +77,16 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="M/V" unique_id=1051422997]
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="M/V/HBoxContainer" unique_id=1223847498]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="M/V/HBoxContainer" unique_id=9292614]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Restart (Right Face Button / Backspace)"
+
+[node name="TextureRect2" type="TextureRect" parent="M/V/HBoxContainer" unique_id=512183873]
+layout_mode = 2
 
 [node name="Label2" type="Label" parent="M/V/HBoxContainer" unique_id=915444558]
 layout_mode = 2
