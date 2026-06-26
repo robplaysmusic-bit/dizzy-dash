@@ -8,7 +8,7 @@ const FUDGE: float = 0.01
 
 const LEAD_IN_TIMER_PERIOD : float = 0.5
 
-@onready var line: Line2D = $Line2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var time_remaining: Label = $CanvasLayer/MarginContainer/TimeRemaining
 @onready var spin_time: Timer = $SpinTime
 @onready var warning_timer: Timer = $WarningTimer
@@ -43,6 +43,7 @@ var disabled : bool = false
 var lead_in_counts : int = 0
 
 func _ready() -> void:
+	lead_in_panel.visible = true
 	RaceMusic.stop()
 	SpinMusic.play()
 	DizzyManager.set_dizziness(0)
@@ -62,7 +63,9 @@ func _process(_delta: float) -> void:
 		return
 
 	var direction := input.angle()
-	line.global_rotation = direction
+	
+	_spin_sprite(input)
+	
 	# if no goal, set it
 	if for_goal < 0:
 		set_spin_goals(direction)
@@ -108,6 +111,22 @@ func angle_in_range(angle: float, start: float, end: float) -> bool:
 		while angle > start:
 			angle -= PI_2
 		return angle < start && angle >= end - FUDGE
+
+func _spin_sprite(input: Vector2):
+	var x_abs : float = abs(input.x)
+	var y_abs : float = abs(input.y)
+	
+	if x_abs > y_abs:
+		if input.x > 0:
+			sprite.play("idle_right")
+		else:
+			sprite.play("idle_left")
+	else:
+		if input.y > 0: 
+			sprite.play("idle_down")
+		else: 
+			sprite.play("idle_up")
+
 
 func _start_spin_game() -> void:
 	disabled = false

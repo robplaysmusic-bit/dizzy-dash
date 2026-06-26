@@ -4,10 +4,6 @@ const MAX_WALK_SPEED : float = 200.0
 const WALK_ACCEL : float = 1000.0
 const WALK_DEACCEL : float = 1000.0
 
-# not convinced this should actually be a thing
-const MAX_RUN_SPEED : float = 400.0
-const RUN_ACCEL : float = 500.0
-
 const JUMP_TIME : float = 0.5
 const RESPAWN_TIME : float = 1.0
 const RESPAWN_DISTANCE : float = 100.0
@@ -24,6 +20,8 @@ var death_velocity : Vector2
 
 var on_ice : bool = false
 var previously_on_ice : bool = false
+
+var last_direction : Vector2 = Vector2.DOWN
 
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -70,6 +68,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	# like ice / sand / etc.
 	
 	_handle_icy_terrain()
+	_handle_animations(velocity)
 
 	state.set_linear_velocity(velocity)
 
@@ -91,6 +90,39 @@ func enter_ice() -> void:
 func exit_ice() -> void:
 	on_ice = false
 
+
+func _handle_animations(velocity : Vector2) -> void:
+	var x_abs : float = abs(velocity.x)
+	var y_abs : float = abs(velocity.y)
+	
+	if x_abs < 10 and y_abs < 10:
+		match last_direction:
+			Vector2.LEFT:
+				sprite.play("idle_left")
+			Vector2.RIGHT:
+				sprite.play("idle_right")
+			Vector2.UP:
+				sprite.play("idle_up")
+			Vector2.DOWN:
+				sprite.play("idle_down")
+		return
+			
+	
+	if x_abs > y_abs:
+		if velocity.x > 0:
+			sprite.play("walk_right")
+			last_direction = Vector2.RIGHT
+		else:
+			sprite.play("walk_left")
+			last_direction = Vector2.LEFT
+	else:
+		if velocity.y > 0: 
+			sprite.play("walk_down")
+			last_direction = Vector2.DOWN
+		else: 
+			sprite.play("walk_up")
+			last_direction = Vector2.UP
+
 func _handle_icy_terrain() -> void:
 	if on_ice != previously_on_ice:
 		if on_ice:
@@ -100,6 +132,7 @@ func _handle_icy_terrain() -> void:
 			linear_damp_mode = RigidBody2D.DAMP_MODE_REPLACE
 			linear_damp = NORMAL_DAMP
 	previously_on_ice = on_ice
+
 
 func _handle_jump() -> void:
 	# bit 1 is for jump collisions
