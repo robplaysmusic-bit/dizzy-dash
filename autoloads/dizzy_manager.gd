@@ -84,7 +84,7 @@ func _on_rotation_change_timer_timeout() -> void:
 		_dizziness -= 1
 	
 	# we hit a boundary, change directions
-	if _tier != previous_tier:
+	if _tier != previous_tier or _dizziness == _info[Dizzy.OH_NO][MAX_ROTATION_INDEX]:
 		rotation_increasing = !rotation_increasing
 		if rotation_increasing:
 			_dizziness += 1
