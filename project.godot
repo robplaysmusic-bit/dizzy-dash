@@ -21,6 +21,7 @@ DizzyManager="*uid://bpyaw84lobups"
 LevelLoader="*uid://bg3q2q8lsl4pb"
 SpinMusic="*uid://dqn7et530aaym"
 RaceMusic="*uid://c4764kapqdvfn"
+TimeTracker="*uid://dqyf6e18qux55"
 
 [debug]
 

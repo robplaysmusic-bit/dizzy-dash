@@ -53,6 +53,7 @@ platinum_time = 8.0
 gold_time = 10.0
 silver_time = 15.0
 bronze_time = 25.0
+level_num = 3
 next_course = "uid://dovybpy6nl3r4"
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_faynr")]
