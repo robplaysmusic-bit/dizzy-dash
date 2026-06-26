@@ -1,5 +1,10 @@
 class_name FinalResultsUI extends CanvasLayer
 
+const COURSE_1 : String = "res://levels/level-1.tscn"
+const COURSE_2 : String = "res://levels/level-2.tscn"
+const COURSE_3 : String = "res://levels/level-3.tscn"
+
+
 @onready var course_1_results: ResultRow = $Results/VBoxContainer/MarginContainer2/VBoxContainer/Course1Results
 @onready var course_2_results: ResultRow = $Results/VBoxContainer/MarginContainer2/VBoxContainer/Course2Results
 @onready var course_3_results: ResultRow = $Results/VBoxContainer/MarginContainer2/VBoxContainer/Course3Results
@@ -20,5 +25,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# check for inputs
-	pass
+	if Input.is_action_just_released("jump"):
+		LevelLoader.load_spin_game(COURSE_1)
+	elif Input.is_action_just_released("back"):
+		LevelLoader.load_spin_game(COURSE_2)
+	elif Input.is_action_just_released("retry_spin"):
+		LevelLoader.load_spin_game(COURSE_3)
