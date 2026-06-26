@@ -4,6 +4,7 @@ class_name Level extends Node2D
 @export var gold_time : float = 0
 @export var silver_time : float = 0
 @export var bronze_time : float = 0
+@export var level_num : int
 @export_file("*.tscn") var next_course : String
 
 @onready var player: Player = $Player
@@ -26,14 +27,17 @@ func _process(_delta: float) -> void:
 	timer_ui.initialize_goal_times(platinum_time, gold_time, silver_time, bronze_time)
 	if Input.is_action_pressed("jump"):
 		if timer_ui.result_ui.visible:
-			DizzyManager.previous_best_time = INF
 			LevelLoader.load_spin_game(next_course)
-			queue_free()
+			queue_free.call_deferred()
+	if Input.is_action_pressed("retry_spin"):
+		if timer_ui.result_ui.visible or timer_ui.pause_ui.visible:
+			LevelLoader.load_spin_game(scene_file_path)
+			queue_free.call_deferred()
 	elif Input.is_action_pressed("back"):
 		if timer_ui.result_ui.visible or timer_ui.pause_ui.visible:
 			get_tree().paused = false
 			LevelLoader.load_next_course()
-			queue_free()
+			queue_free.call_deferred()
 
 	if Input.is_action_just_pressed("menu"):
 		if !timer_ui.result_ui.visible:
@@ -44,6 +48,6 @@ func _process(_delta: float) -> void:
 func _on_finish_line_crossed() -> void:
 	player.active = false
 	var result := timer_ui.halt_timer()
-	var previous_best: float = DizzyManager.previous_best(result)
-	timer_ui.result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, previous_best)
+	TimeTracker.record_time(level_num, result)
+	timer_ui.result_ui.set_score(platinum_time, gold_time, silver_time, bronze_time, result, TimeTracker.get_best_time(level_num))
 	timer_ui.result_ui.visible = true

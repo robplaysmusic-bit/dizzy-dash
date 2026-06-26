@@ -23,8 +23,6 @@ const _info : Dictionary[Dizzy, Array] = {
 	Dizzy.OH_NO :			[80,	100,	0.1]  # centered around 90
 }
 
-var previous_best_time: float = INF
-
 var _tier : Dizzy = Dizzy.NOT_DIZZY
 # Value determined by player in spin mini-game - no upper bound
 # basic tiers of player impact:
@@ -101,9 +99,3 @@ func format_time(time: float) -> String:
 	
 	# Update the UI label text using zero padding
 	return "%02d:%02d.%02d" % [minutes, seconds % 60, subsec % 100]
-
-func previous_best(new_time: float) -> float:
-	var prev := previous_best_time
-	if new_time < previous_best_time:
-		previous_best_time = new_time
-	return prev

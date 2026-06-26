@@ -53,13 +53,14 @@ platinum_time = 8.0
 gold_time = 10.0
 silver_time = 15.0
 bronze_time = 25.0
+level_num = 3
 next_course = "uid://dovybpy6nl3r4"
 
 [node name="Player" parent="." unique_id=715659999 instance=ExtResource("2_faynr")]
 position = Vector2(19, 23)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=514127651]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 limit_left = -61
 limit_top = -79
 limit_right = 1612

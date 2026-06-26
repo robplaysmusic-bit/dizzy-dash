@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://bxrgbm7lwx7kr"]
 
+[ext_resource type="Texture2D" uid="uid://dfmm38bkbmhcd" path="res://assets/sprites/control-indications.png" id="1_h5cju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt2tb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="PauseUI" type="Control" unique_id=694073540]
 layout_mode = 3
 anchors_preset = 15
@@ -52,25 +57,49 @@ vertical_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2133276032]
 layout_mode = 2
 
-[node name="Controls" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=654880532]
+[node name="RestartControls" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=654880532]
+custom_minimum_size = Vector2(64, 0)
+custom_maximum_size = Vector2(64, -1)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "Restart (Right Face Button /Backspace)"
+text = "Retry Course : Bksp / "
 vertical_alignment = 1
 
-[node name="Controls2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=112526605]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=673427489]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tt2tb")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel" unique_id=155313847]
+position = Vector2(16, 16)
+texture = ExtResource("1_h5cju")
+hframes = 4
+frame = 1
+
+[node name="UnpauseControls" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=112526605]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "Unpause (Start/Esc)"
-horizontal_alignment = 1
+text = "Resume : Esc / Start"
 vertical_alignment = 1
 
-[node name="Controls3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=684549837]
+[node name="RestartFromSpinControls" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=684549837]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 18
-text = "Full restart (???)"
+text = "Retry From Last Spin : E / "
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1221433164]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tt2tb")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel2" unique_id=829034633]
+position = Vector2(16, 16)
+texture = ExtResource("1_h5cju")
+hframes = 4
+frame = 3

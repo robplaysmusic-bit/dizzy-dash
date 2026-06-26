@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqyf6e18qux55"]
+
+[ext_resource type="Script" uid="uid://caxwrl2m8erdc" path="res://player/time_tracker.gd" id="1_p27rd"]
+
+[node name="TimeTracker" type="Node" unique_id=1921648337]
+script = ExtResource("1_p27rd")
