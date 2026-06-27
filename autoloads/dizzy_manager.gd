@@ -108,10 +108,12 @@ func format_time(time: float) -> String:
 	return "%02d:%02d.%02d" % [minutes, seconds % 60, subsec % 100]
 
 ## works around a bug in Input.get_vector where switching between buttons and joystick results in buttons not returning axis-aligned vectors
-func input_vector_fixed() -> Vector2:
+func input_vector_fixed() -> Array:
+	var used_joystick := true
 	var input := Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y))
 	# dead zone 0.2
 	if input.length_squared() <= 0.04:
+		used_joystick = false
 		input = Vector2.ZERO
 	if Input.is_action_pressed("up"):
 		input += Vector2(0, -1)
@@ -121,4 +123,4 @@ func input_vector_fixed() -> Vector2:
 		input += Vector2(-1, 0)
 	if Input.is_action_pressed("right"):
 		input += Vector2(1, 0)
-	return input.normalized()
+	return [input.normalized(), used_joystick]

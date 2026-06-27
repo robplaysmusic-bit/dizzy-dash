@@ -46,7 +46,7 @@ func elapsed_time() -> float:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var input: Vector2 = DizzyManager.input_vector_fixed()
+	var input: Vector2 = DizzyManager.input_vector_fixed()[0]
 	if input == Vector2.ZERO:
 		input_debug.text = ""
 		dizzy_debug.text = ""

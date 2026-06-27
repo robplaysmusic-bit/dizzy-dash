@@ -37,6 +37,8 @@ var rev_goals: Array[float]
 var start_direction: float = 10
 # time in msec that you last progressed your spin
 var last_progress_msec: int = 0
+# was the joystick used at all during the last spin?
+var joystick_spin := false
 # set when the game is over - tells us to stop counting spins
 var disabled : bool = false
 
@@ -58,7 +60,9 @@ func _process(_delta: float) -> void:
 	mini_game_time = (total_game_time_msec - (Time.get_ticks_msec() - mini_game_start_msec)) / 1000.0
 	_update_timer_label()
 	
-	var input: Vector2 = DizzyManager.input_vector_fixed()
+	var ary: Array = DizzyManager.input_vector_fixed()
+	var input: Vector2 = ary[0]
+	var used_joystick: bool = ary[1]
 	if input == Vector2.ZERO:
 		return
 
@@ -75,22 +79,35 @@ func _process(_delta: float) -> void:
 		# spin timed out, restart
 		for_goal = -1
 		rev_goal = -1
+		joystick_spin = false
 	elif angle_in_range(direction, for_goals[for_goal], for_goals[for_goal + 1]):
+		if used_joystick:
+			joystick_spin = true
 		for_goal += 1
 		last_progress_msec = Time.get_ticks_msec()
 		if for_goal == 4:
 			spins += 1
+			# if not using joystick, bonus spin
+			if not joystick_spin:
+				spins += 1
 			DizzyManager.set_dizziness(absi(spins))
 			for_goal = 0
 			rev_goal = 0
+			joystick_spin = false
 	elif angle_in_range(direction, rev_goals[rev_goal], rev_goals[rev_goal + 1]):
+		if used_joystick:
+			joystick_spin = true
 		rev_goal += 1
 		last_progress_msec = Time.get_ticks_msec()
 		if rev_goal == 4:
 			spins -= 1
+			# if not using joystick, bonus spin
+			if not joystick_spin:
+				spins -= 1
 			DizzyManager.set_dizziness(absi(spins))
 			rev_goal = 0
 			for_goal = 0
+			joystick_spin = false
 
 func set_spin_goals(direction: float) -> void:
 	for_goal = 0
