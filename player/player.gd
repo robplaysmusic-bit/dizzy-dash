@@ -15,8 +15,7 @@ const SAND_DAMP : float = 10.0
 var active := true
 var dying : bool = false
 var dead : bool = false
-var death_position : Vector2
-var death_velocity : Vector2
+var respawn_position: Vector2
 
 var on_ice : bool = false
 var previously_on_ice : bool = false
@@ -29,10 +28,47 @@ var last_direction : Vector2 = Vector2.DOWN
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var respawn_timer: Timer = $RespawnTimer
 
+# store this many previous frames of positions
+const position_history_count := 60
+var position_history: Array[Vector2] = []
+var position_head := 0
+var position_tail := 0
+
+func _ready() -> void:
+	# construct position history ring buffer
+	position_history = []
+	var i := 0
+	while i < position_history_count:
+		position_history.append(Vector2.ZERO)
+		i += 1
+	reset_history(global_position)
+
+func reset_history(pos: Vector2) -> void:
+	position_history[0] = pos
+	position_head = 1
+	position_tail = 0
+
+func _physics_process(_delta: float) -> void:
+	# don't record new positions once dying
+	if dying or dead:
+		return
+	position_history[position_head] = global_position
+	if position_tail == 0:
+		# if still filling ring buffer, only move head
+		if position_head + 1 < position_history_count:
+			position_head += 1
+		else: # time to wrap around
+			position_head = 0
+			position_tail = 1
+	else: # buffer was previously filled
+		# thus it's always safe to increment head (otherwise tail would be 0)
+		position_head += 1
+		# possibly tail needs to wrap around
+		position_tail = (position_tail + 1) % position_history_count
+
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if dying or dead: 
 		if dying:
-			death_velocity = state.get_linear_velocity()
 			await get_tree().create_timer(0.1).timeout
 			state.set_linear_velocity(Vector2.ZERO)
 			dying = false
@@ -59,12 +95,12 @@ func is_jumping() -> bool:
 
 func die() -> void:
 	dying = true
-	death_position = global_position
+	respawn_position = position_history[position_tail]
+	reset_history(respawn_position)
 	respawn_timer.start(RESPAWN_TIME)
 	var death_tween : Tween = get_tree().create_tween()
 	death_tween.tween_property(sprite, "scale", Vector2(0, 0), RESPAWN_TIME/2)
 	# TODO: perhaps some poof particle effect on await tween finished
-	pass
 
 func enter_ice() -> void:
 	on_ice = true
@@ -136,12 +172,7 @@ func _on_jump_timer_timeout() -> void:
 
 
 func _on_respawn_timer_timeout() -> void:
-	# Respawn the player opposite the direction they were moving when they died
-	if death_velocity != Vector2.ZERO:
-		var direction := death_velocity.normalized()
-		self.global_position = self.global_position - (direction * RESPAWN_DISTANCE)
-	else:
-		push_warning("Died with no velocity ... not sure how to handle it. Let's hope it doesn't happen for now.")
+	self.global_position = respawn_position
 	# have the player reappear
 	# TODO: some animation / particle effect
 	sprite.scale = Vector2(1,1)
