@@ -27,10 +27,10 @@ var _info : Dictionary[Dizzy, DizzyEffect] = {
 	Dizzy.NOT_DIZZY: DizzyEffect.new(  0,  0, 6.0),
 	Dizzy.SLIGHTLY : DizzyEffect.new(180,  2, 6.0),
 	Dizzy.SOMEWHAT : DizzyEffect.new( 45,  2, 6.0),
-	Dizzy.STANDARD : DizzyEffect.new( 45, 13, 6.0),
-	Dizzy.VERY     : DizzyEffect.new( 75, 10, 5.0),
-	Dizzy.EXTREMELY: DizzyEffect.new( 90,  5, 4.0),
-	Dizzy.OH_NO    : DizzyEffect.new( 90, 10, 3.0)
+	Dizzy.STANDARD : DizzyEffect.new( 60,  4, 6.0),
+	Dizzy.VERY     : DizzyEffect.new( 75,  6, 4.0),
+	Dizzy.EXTREMELY: DizzyEffect.new( 90,  8, 2.0),
+	Dizzy.OH_NO    : DizzyEffect.new( 90, 10, 1.0)
 }
 
 var _tier : Dizzy = Dizzy.NOT_DIZZY

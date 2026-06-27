@@ -1,14 +1,10 @@
 class_name Player extends RigidBody2D
 
-const MAX_WALK_SPEED : float = 200.0
-const WALK_ACCEL : float = 1000.0
-const WALK_DEACCEL : float = 1000.0
-
 const JUMP_TIME : float = 0.5
 const RESPAWN_TIME : float = 1.0
 const RESPAWN_DISTANCE : float = 100.0
 
-const ICY_DAMP : float = 0.5
+const ICY_DAMP : float = 1.75
 const NORMAL_DAMP : float = 5.0
 const SAND_DAMP : float = 10.0
 

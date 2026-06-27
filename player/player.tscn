@@ -278,7 +278,7 @@ gravity_scale = 0.0
 center_of_mass_mode = 1
 linear_damp = 5.0
 script = ExtResource("1_oul6g")
-move_scale = 1100.0
+move_scale = 1250.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1609306316]
 sprite_frames = SubResource("SpriteFrames_c6smh")
