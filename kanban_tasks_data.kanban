@@ -22,7 +22,6 @@
 			"title": "Todo",
 			"tasks": [
 				"d2da8051-c841-4b28-a143-a2cbb4c427e3",
-				"3e6ad42b-1ecf-4067-afbd-45c522371d3a",
 				"52765537-9e77-49cb-9964-a9907a9dcf54"
 			]
 		},
@@ -36,6 +35,7 @@
 			"title": "Done",
 			"tasks": [
 				"6ad2d585-134c-4668-9bb1-5e22d2c2ccd3",
+				"3e6ad42b-1ecf-4067-afbd-45c522371d3a",
 				"67f74b5e-2c3b-460e-8eed-fb836675d732",
 				"7de68f17-9330-467e-813f-13ffc17e40f6",
 				"137ad9cf-d0f0-4564-90a2-83939c96ec7a",

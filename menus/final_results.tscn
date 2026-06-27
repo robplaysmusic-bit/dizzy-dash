@@ -328,6 +328,7 @@ offset_left = -73.5
 offset_right = 73.5
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "Thanks for Playing!"
 
@@ -360,6 +361,7 @@ theme_override_constants/margin_top = 10
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Best Times"
 
@@ -398,6 +400,7 @@ size_flags_horizontal = 4
 [node name="label" type="Label" parent="FinalResultsUI/Results/VBoxContainer/CourseSelect/VBoxContainer/Course1Retry" unique_id=1503124088]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Retry Course 1    Space /"
 
@@ -419,6 +422,7 @@ size_flags_horizontal = 4
 [node name="label2" type="Label" parent="FinalResultsUI/Results/VBoxContainer/CourseSelect/VBoxContainer/Course2Retry" unique_id=1045794954]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Retry Course 2     Bksp / "
 horizontal_alignment = 2
@@ -441,6 +445,7 @@ size_flags_horizontal = 4
 [node name="label3" type="Label" parent="FinalResultsUI/Results/VBoxContainer/CourseSelect/VBoxContainer/Course3Retry" unique_id=1919276658]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Retry Course 3            E / "
 horizontal_alignment = 2
@@ -488,17 +493,20 @@ layout_mode = 2
 
 [node name="Credits" type="Label" parent="FinalResultsUI/Credits/MarginContainer/VBoxContainer2" unique_id=2135989775]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Credits"
 
 [node name="Design" type="Label" parent="FinalResultsUI/Credits/MarginContainer/VBoxContainer2" unique_id=284609748]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_03dd7")
 text = "
 Design and Programming"
 
 [node name="Label" type="Label" parent="FinalResultsUI/Credits/MarginContainer/VBoxContainer2" unique_id=1526039463]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Rob Poliseno
 Max Anselm
@@ -506,11 +514,13 @@ Max Anselm
 
 [node name="Art" type="Label" parent="FinalResultsUI/Credits/MarginContainer/VBoxContainer2" unique_id=16828529]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_03dd7")
 text = "Pixel Art"
 
 [node name="Label3" type="Label" parent="FinalResultsUI/Credits/MarginContainer/VBoxContainer2" unique_id=718097524]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Rob Poliseno
 andomoarigato
@@ -519,10 +529,12 @@ astute_pengo
 
 [node name="Music" type="Label" parent="FinalResultsUI/Credits/MarginContainer/VBoxContainer2" unique_id=19643357]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_03dd7")
 text = "Music"
 
 [node name="Label5" type="Label" parent="FinalResultsUI/Credits/MarginContainer/VBoxContainer2" unique_id=65329726]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "Rob Poliseno"

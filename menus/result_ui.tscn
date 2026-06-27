@@ -103,6 +103,7 @@ size_flags_horizontal = 4
 [node name="Label2" type="Label" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer" unique_id=915444558]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Next Course                 Space /"
 
@@ -124,6 +125,7 @@ size_flags_horizontal = 4
 [node name="Label" type="Label" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=9292614]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Retry Course                 Bksp / "
 horizontal_alignment = 2
@@ -146,6 +148,7 @@ size_flags_horizontal = 4
 [node name="RestartFromSpinControls" type="Label" parent="M/V/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1607692763]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Retry From Last Spin         E / "
 horizontal_alignment = 2
