@@ -43,7 +43,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	var raw_input := Vector2.ZERO
 	# read player inputs and apply dizziness
 	if active:
-		raw_input = Input.get_vector("left", "right", "up", "down")
+		raw_input = DizzyManager.input_vector_fixed()
 	var dizzy_input := DizzyManager.apply_dizziness(raw_input)
 
 	if Input.is_action_just_pressed("jump") and jump_timer.is_stopped():

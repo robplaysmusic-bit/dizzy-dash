@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 	mini_game_time = (total_game_time_msec - (Time.get_ticks_msec() - mini_game_start_msec)) / 1000.0
 	_update_timer_label()
 	
-	var input := Input.get_vector("left", "right", "up", "down")
+	var input: Vector2 = DizzyManager.input_vector_fixed()
 	if input == Vector2.ZERO:
 		return
 

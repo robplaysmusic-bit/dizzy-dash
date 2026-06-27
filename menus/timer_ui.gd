@@ -46,10 +46,14 @@ func elapsed_time() -> float:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var input: Vector2 = Input.get_vector("left", "right", "up", "down")
-	input_debug.text = "%d" % int(rad_to_deg(input.angle()))
-	var output: Vector2 = DizzyManager.apply_dizziness(input)
-	dizzy_debug.text = "%d" % int(rad_to_deg(output.angle()))
+	var input: Vector2 = DizzyManager.input_vector_fixed()
+	if input == Vector2.ZERO:
+		input_debug.text = ""
+		dizzy_debug.text = ""
+	else:
+		input_debug.text = "%d" % int(rad_to_deg(input.angle()))
+		var output: Vector2 = DizzyManager.apply_dizziness(input)
+		dizzy_debug.text = "%d" % int(rad_to_deg(output.angle()))
 	if stopped or pause_ui.visible: return
 	
 	actual_seconds_elapsed = elapsed_time()
