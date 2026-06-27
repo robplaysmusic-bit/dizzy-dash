@@ -275,8 +275,10 @@ animations = [{
 [node name="Player" type="RigidBody2D" unique_id=715659999 groups=["player"]]
 z_index = 10
 gravity_scale = 0.0
+center_of_mass_mode = 1
 linear_damp = 5.0
 script = ExtResource("1_oul6g")
+move_scale = 1000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1609306316]
 sprite_frames = SubResource("SpriteFrames_c6smh")
@@ -285,7 +287,6 @@ autoplay = "idle_down"
 frame_progress = 0.30581087
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1477498328]
-visible = false
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_3rros")
 

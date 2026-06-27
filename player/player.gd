@@ -23,6 +23,8 @@ var previously_on_ice : bool = false
 
 var last_direction : Vector2 = Vector2.DOWN
 
+@export var move_scale: float
+
 @onready var jump_timer: Timer = $JumpTimer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var respawn_timer: Timer = $RespawnTimer
@@ -37,7 +39,6 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 			dead = true
 		return
 	var velocity := state.get_linear_velocity()
-	var step := state.get_step()
 	
 	var raw_input := Vector2.ZERO
 	# read player inputs and apply dizziness
@@ -48,29 +49,10 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if Input.is_action_just_pressed("jump") and jump_timer.is_stopped():
 		_handle_jump()
 
-	# left / right movement
-	if dizzy_input.x < 0:
-		if velocity.x > -MAX_WALK_SPEED:
-			velocity.x -= WALK_ACCEL * step
-	elif dizzy_input.x > 0:
-		if velocity.x < MAX_WALK_SPEED:
-			velocity.x += WALK_ACCEL * step
-	
-	# up / down movement
-	if dizzy_input.y < 0:
-		if velocity.y > -MAX_WALK_SPEED:
-			velocity.y -= WALK_ACCEL * step
-	elif dizzy_input.y > 0:
-		if velocity.y < MAX_WALK_SPEED: 
-			velocity.y += WALK_ACCEL * step
-	
-	# TBD how we will find floor contact on z axis and apply physics for things
-	# like ice / sand / etc.
-	
+	state.apply_force(dizzy_input * move_scale)
+
 	_handle_icy_terrain()
 	_handle_animations(velocity)
-
-	state.set_linear_velocity(velocity)
 
 func is_jumping() -> bool:
 	return !jump_timer.is_stopped()

@@ -17,6 +17,8 @@ var stopped : bool = false
 @onready var bronze_time: Label = $MarginContainer/VBoxContainer/BronzeTime
 @onready var result_ui: ResultUI = $ResultUI
 @onready var pause_ui: Control = $PauseUI
+@onready var dizzy_debug: Label = $DizzyDebug
+@onready var input_debug: Label = $InputDebug
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,6 +46,10 @@ func elapsed_time() -> float:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	var input: Vector2 = Input.get_vector("left", "right", "up", "down")
+	input_debug.text = "%d" % int(rad_to_deg(input.angle()))
+	var output: Vector2 = DizzyManager.apply_dizziness(input)
+	dizzy_debug.text = "%d" % int(rad_to_deg(output.angle()))
 	if stopped or pause_ui.visible: return
 	
 	actual_seconds_elapsed = elapsed_time()

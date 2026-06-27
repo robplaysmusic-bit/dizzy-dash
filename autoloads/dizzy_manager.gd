@@ -10,11 +10,13 @@ const MAX_EXTREMELY_DIZZY : int = 25
 const MAX_OH_NO_DIZZY : int = 5000
 
 class DizzyEffect:
+	var angle_range: float
 	var min_angle: float
 	var max_angle: float
 	var angle_change_rate: float
 
 	func _init(center: float, width: float, rate: float) -> void:
+		self.angle_range = width
 		self.min_angle = center - width
 		self.max_angle = center + width
 		self.angle_change_rate = rate
@@ -59,9 +61,6 @@ var rotation_increasing : bool = true
 # Dizziness should be set before loading the next level
 func set_dizziness(value : int) -> void:
 	_dizziness = value
-	# if we were dizzier in a previous round than this one, we want to avoid
-	# unintentionally changing rotation.
-	rotation_change_timer.stop()
 
 func get_dizziness() -> float:
 	return _dizziness
@@ -85,34 +84,12 @@ func get_dizziness_tier() -> String:
 
 # Intended to be called every physics processing frame to "correct" player inputs
 func apply_dizziness(player_input : Vector2) -> Vector2:
-	var dizzy_input : Vector2 = Vector2.ZERO
-	var rotation_angle := 0.0
-	
-	var rotation_range := _info[_tier].max_angle - _info[_tier].min_angle
-	if _tier != Dizzy.NOT_DIZZY: # avoid modulo by zero
-		rotation_angle = _info[_tier].min_angle + (fmod(_dizziness, rotation_range))
-	
-	if _info[_tier].angle_change_rate > 0 and rotation_change_timer.is_stopped():
-		rotation_change_timer.start(_info[_tier].angle_change_rate)
-	
-	dizzy_input = player_input.rotated(deg_to_rad(rotation_angle))
-	return dizzy_input
+	var effect := _info[_tier]
+	# TODO: this cycles but with a discontinuity at 0. make it smooth
+	var timer_progress := rotation_change_timer.time_left / rotation_change_timer.wait_time
+	var rotation_angle := effect.min_angle + timer_progress * effect.angle_range
 
-
-func _on_rotation_change_timer_timeout() -> void:
-	var previous_tier := _tier
-	if rotation_increasing:
-		_dizziness += 1
-	else:
-		_dizziness -= 1
-	
-	# we hit a boundary, change directions
-	if _tier != previous_tier or _dizziness == _info[Dizzy.OH_NO].max_angle:
-		rotation_increasing = !rotation_increasing
-		if rotation_increasing:
-			_dizziness += 1
-		else:
-			_dizziness -= 1
+	return player_input.rotated(deg_to_rad(rotation_angle))
 
 func format_time(time: float) -> String:
 	var seconds := int(time)
