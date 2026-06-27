@@ -323,7 +323,6 @@ offset_right = 120.0
 offset_bottom = 33.0
 grow_horizontal = 1
 grow_vertical = 1
-live = true
 
 [node name="LeadInPanel" type="Panel" parent="CanvasLayer" unique_id=698255539]
 visible = false
